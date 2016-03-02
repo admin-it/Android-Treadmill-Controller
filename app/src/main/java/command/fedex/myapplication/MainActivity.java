@@ -1,6 +1,7 @@
 package command.fedex.myapplication;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,8 +19,8 @@ import com.echo.holographlibrary.LinePoint;
 
 public class MainActivity extends AppCompatActivity {
     boolean running = false;
-    volatile Line l = new Line();
-    volatile LineGraph li;
+    Line l = new Line();
+    LineGraph li;
     Activity act;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,40 +50,56 @@ public class MainActivity extends AppCompatActivity {
         li = (LineGraph) findViewById(R.id.linegraph);
         li.setUsingDips(true);
         li.addLine(l);
-        li.setOnPointClickedListener(new LineGraph.OnPointClickedListener() {
-
-            @Override
-            public void onClick(int lineIndex, int pointIndex) {
-                Toast.makeText(act,
-                        "Line " + lineIndex + " / Point " + pointIndex + " clicked",
-                        Toast.LENGTH_SHORT)
-                        .show();
-            }
-        });
+//        li.setOnPointClickedListener(new LineGraph.OnPointClickedListener() {
+//
+//            @Override
+//            public void onClick(int lineIndex, int pointIndex) {
+//                Toast.makeText(act,
+//                        "Line " + lineIndex + " / Point " + pointIndex + " clicked",
+//                        Toast.LENGTH_SHORT)
+//                        .show();
+//            }
+//        });
         running = true;
+        li.setClickable(false);
         li.setRangeY(0, 10);
         li.setLineToFill(0);
         startGraph();
     }
 
-    Thread graphThread;
+    AsyncTask<Void, Void, Void> graphThread;
     public void startGraph() {
-        graphThread = new Thread(new Runnable() {
+        graphThread = new AsyncTask<Void, Void, Void>() {
             @Override
-            public void run() {
-                while(running) {
-                    int x = (int) Math.random()*10;
-                    int y = (int) Math.random()*10;
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+                li.setRangeX(i - 10, i);
+                li.invalidate();
+            }
+            int i = 0;
+            @Override
+            protected Void doInBackground(Void... params) {
+                //int i = 0;
+                while(!isCancelled()) {
+                    i += 3;
+                    int y = (int) (Math.random() * 10);
                     LinePoint p = new LinePoint();
-                    p.setX(x);
+                    p.setX(i);
                     p.setY(y);
                     p.setColor(getResources().getColor(R.color.colorAccent));
                     p.setSelectedColor(getResources().getColor(R.color.colorPrimary));
                     l.addPoint(p);
+                    publishProgress();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
+                return null;
             }
-        });
-        graphThread.start();
+        };
+        graphThread.execute();
     }
 
     @Override
@@ -110,14 +127,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        graphThread.cancel(true);
         graphThread = null;
-        running = false;
+        //running = false;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        running = true;
+        //running = true;
         startGraph();
     }
 }
