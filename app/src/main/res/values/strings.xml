@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Smart Treadmill Doctor</string>
+    <string name="app_name">Treadmill Dr, Inc</string>
+    <string name="action_settings">Settings</string>
 </resources>
