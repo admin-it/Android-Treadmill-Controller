@@ -19,7 +19,7 @@ import com.echo.holographlibrary.LinePoint;
 public class MainActivity extends AppCompatActivity {
     boolean running = false;
     volatile Line l = new Line();
-    volatile LineGraph li;
+    //volatile LineGraph li;
     Activity act;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,58 +32,59 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //code for bluetooth connection goes here
                 Snackbar.make(view, "Starting bluetooth communication", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
-        NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker);
-        np.setMaxValue(9);
-        np.setMinValue(0);
-        NumberPicker np2 = (NumberPicker) findViewById(R.id.numberPicker2);
-        np2.setMaxValue(7);
-        np2.setMinValue(0);
-        np.setOrientation(NumberPicker.HORIZONTAL);
-        act = this;
-        l.setUsingDips(true);
-        li = (LineGraph) findViewById(R.id.linegraph);
-        li.setUsingDips(true);
-        li.addLine(l);
-        li.setOnPointClickedListener(new LineGraph.OnPointClickedListener() {
-
-            @Override
-            public void onClick(int lineIndex, int pointIndex) {
-                Toast.makeText(act,
-                        "Line " + lineIndex + " / Point " + pointIndex + " clicked",
-                        Toast.LENGTH_SHORT)
-                        .show();
-            }
-        });
-        running = true;
-        li.setRangeY(0, 10);
-        li.setLineToFill(0);
-        startGraph();
+//        NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker);
+//        np.setMaxValue(9);
+//        np.setMinValue(0);
+//        NumberPicker np2 = (NumberPicker) findViewById(R.id.numberPicker2);
+//        np2.setMaxValue(7);
+//        np2.setMinValue(0);
+//        np.setOrientation(NumberPicker.HORIZONTAL);
+//        act = this;
+//        l.setUsingDips(true);
+        //li = (LineGraph) findViewById(R.id.linegraph);
+//        li.setUsingDips(true);
+//        li.addLine(l);
+//        li.setOnPointClickedListener(new LineGraph.OnPointClickedListener() {
+//
+//            @Override
+//            public void onClick(int lineIndex, int pointIndex) {
+//                Toast.makeText(act,
+//                        "Line " + lineIndex + " / Point " + pointIndex + " clicked",
+//                        Toast.LENGTH_SHORT)
+//                        .show();
+//            }
+//        });
+//        running = true;
+//        li.setRangeY(0, 10);
+//        li.setLineToFill(0);
+//        startGraph();
     }
 
-    Thread graphThread;
-    public void startGraph() {
-        graphThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(running) {
-                    int x = (int) Math.random()*10;
-                    int y = (int) Math.random()*10;
-                    LinePoint p = new LinePoint();
-                    p.setX(x);
-                    p.setY(y);
-                    p.setColor(getResources().getColor(R.color.colorAccent));
-                    p.setSelectedColor(getResources().getColor(R.color.colorPrimary));
-                    l.addPoint(p);
-                }
-            }
-        });
-        graphThread.start();
-    }
+//    Thread graphThread;
+//    public void startGraph() {
+//        graphThread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                while(running) {
+//                    int x = (int) Math.random()*10;
+//                    int y = (int) Math.random()*10;
+//                    LinePoint p = new LinePoint();
+//                    p.setX(x);
+//                    p.setY(y);
+//                    p.setColor(getResources().getColor(R.color.colorAccent));
+//                    p.setSelectedColor(getResources().getColor(R.color.colorPrimary));
+//                    l.addPoint(p);
+//                }
+//            }
+//        });
+//        graphThread.start();
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,17 +108,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        graphThread = null;
-        running = false;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        running = true;
-        startGraph();
-    }
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        graphThread = null;
+//        running = false;
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        running = true;
+//        startGraph();
+//    }
 }

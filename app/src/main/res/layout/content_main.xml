@@ -10,123 +10,152 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="command.fedex.myapplication.MainActivity"
-    tools:showIn="@layout/activity_main"
-    android:background="#42a5f5">
+    android:background="#d5d5d5"
+    tools:showIn="@layout/activity_main">
 
-    <TextView
+    <TextClock
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Treadmill, Inc"
-        android:id="@+id/textView"
+        android:id="@+id/textClock"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:textSize="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START"
+        android:id="@+id/buttonStart"
+        android:layout_gravity="bottom|left"
+        android:background="#00ff00"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/textClock"
+        android:height="55dp"
+        android:textSize="17dp"
+        android:layout_alignParentEnd="false"
+        android:clickable="true" />
+
+    <Button
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:text="STOP"
+        android:id="@+id/buttonStop"
+        android:background="#ff0000"
+        android:textColor="#ffffff"
+        android:height="55dp"
+        android:textSize="17dp"
+        android:layout_marginStart="26dp"
+        android:layout_alignTop="@+id/buttonStart"
+        android:layout_toEndOf="@+id/buttonStart"
+        android:clickable="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:src="@drawable/ic_expand_less_white_48dp"
+        android:background="#d5d5d5"
+        android:layout_toStartOf="@+id/textClock"
+        android:layout_alignTop="@+id/imageButton2"
+        android:layout_above="@+id/imageView"
+        android:clickable="true" />
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:id="@+id/imageButton2"
+        android:src="@drawable/ic_add_white_48dp"
+        android:background="#d5d5d5"
+        android:clickable="true"
+        android:layout_toEndOf="@+id/textClock"
+        android:layout_above="@+id/imageView2" />
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
         android:id="@+id/imageView"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/graph"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Heart Rate"
-        android:textColor="@android:color/white"
-        android:textAlignment="center"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView"
-        android:layout_alignStart="@+id/imageView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Calories"
-        android:textColor="@android:color/white"
-        android:textAlignment="center"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/linegraph"
-        android:layout_alignEnd="@+id/linegraph"
-        android:layout_alignStart="@+id/linegraph" />
+        android:src="@drawable/incline_icon"
+        android:layout_below="@+id/imageButton2"
+        android:layout_alignStart="@+id/imageButton" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
         android:id="@+id/imageView2"
-        android:layout_alignEnd="@+id/imageView"
-        android:layout_alignStart="@+id/imageView"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignTop="@+id/imageView"
-        android:src="@drawable/heart"
-        android:layout_margin="30dp"
-        android:alpha="0.6" />
-
-    <NumberPicker
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:id="@+id/numberPicker"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="160dp"
-        android:orientation="horizontal"
-        android:background="#ffffff" />
-
-    <NumberPicker
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:id="@+id/numberPicker2"
-        android:layout_alignParentEnd="true"
-        android:background="#ffffff"
-        android:layout_marginBottom="160dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal" />
+        android:src="@drawable/speed_icon"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/imageButton2" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Incline"
+        android:id="@+id/textView"
+        android:textSize="25dp"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignEnd="@+id/imageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Speed"
-        android:id="@+id/textView3"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:layout_alignStart="@+id/numberPicker"
-        android:layout_alignEnd="@+id/numberPicker"
-        android:layout_below="@+id/numberPicker"
-        android:layout_marginTop="-150dp" />
+        android:id="@+id/textView2"
+        android:layout_above="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:textSize="25dp" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Incination"
-        android:id="@+id/textView4"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:layout_alignStart="@+id/numberPicker2"
-        android:layout_alignEnd="@+id/numberPicker2"
-        android:layout_below="@+id/numberPicker2"
-        android:layout_marginTop="-150dp" />
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:text="0"
+        android:gravity="center_horizontal"
+        android:layout_above="@+id/imageButton2"
+        android:layout_alignEnd="@+id/imageButton2"
+        android:layout_toEndOf="@+id/textClock"
+        android:clickable="true" />
 
-    <com.echo.holographlibrary.LineGraph
-        android:layout_width="140dp"
-        android:layout_height="100dp"
-        android:id="@+id/linegraph"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="15dp"
-        app:lineStrokeColor="@color/colorAccent"
-        app:lineAxisColor="@color/colorPrimary"
-        app:lineStrokeWidth="1dip"
-        app:lineStrokeSpacing="10dip"
-        app:lineUseDip="true"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/imageButton3"
+        android:src="@drawable/ic_remove_white_48dp"
+        android:background="#d5d5d5"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignBottom="@+id/imageButton4"
+        android:clickable="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:text="0"
+        android:gravity="center_horizontal"
+        android:layout_above="@+id/imageButton"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignStart="@+id/imageButton"
+        android:clickable="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton4"
+        android:src="@drawable/ic_expand_more_white_48dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_toStartOf="@+id/buttonStop"
+        android:background="#d5d5d5"
+        android:clickable="true" />
 
 </RelativeLayout>
