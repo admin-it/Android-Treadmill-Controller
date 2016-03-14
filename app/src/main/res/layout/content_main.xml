@@ -21,35 +21,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="20dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="START"
-        android:id="@+id/buttonStart"
-        android:layout_gravity="bottom|left"
-        android:background="#00ff00"
-        android:textColor="#ffffff"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/textClock"
-        android:height="55dp"
-        android:textSize="17dp"
-        android:layout_alignParentEnd="false"
-        android:clickable="true" />
 
-    <Button
-        android:layout_width="111dp"
-        android:layout_height="wrap_content"
-        android:text="STOP"
-        android:id="@+id/buttonStop"
-        android:background="#ff0000"
-        android:textColor="#ffffff"
-        android:height="55dp"
-        android:textSize="17dp"
-        android:layout_marginStart="26dp"
-        android:layout_alignTop="@+id/buttonStart"
-        android:layout_toEndOf="@+id/buttonStart"
-        android:clickable="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -162,5 +134,40 @@
         android:layout_toStartOf="@+id/buttonStop"
         android:background="#d5d5d5"
         android:clickable="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="START"
+            android:id="@+id/buttonStart"
+            android:layout_gravity="bottom|left"
+            android:background="#00ff00"
+            android:textColor="#ffffff"
+            android:height="55dp"
+            android:textSize="17dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="STOP"
+            android:id="@+id/buttonStop"
+            android:background="#ff0000"
+            android:textColor="#ffffff"
+            android:textSize="17dp"
+            android:clickable="true"
+            android:layout_margin="10dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
 </RelativeLayout>
