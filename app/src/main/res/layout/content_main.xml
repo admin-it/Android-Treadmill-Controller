@@ -54,18 +54,18 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/btnInclineUp"
         android:src="@drawable/ic_expand_less_white_48dp"
         android:background="#d5d5d5"
         android:layout_toStartOf="@+id/textClock"
-        android:layout_alignTop="@+id/imageButton2"
+        android:layout_alignTop="@+id/btnSpeedUp"
         android:layout_above="@+id/imageView"
         android:clickable="true" />
 
     <ImageButton
         android:layout_width="70dp"
         android:layout_height="80dp"
-        android:id="@+id/imageButton2"
+        android:id="@+id/btnSpeedUp"
         android:src="@drawable/ic_add_white_48dp"
         android:background="#d5d5d5"
         android:clickable="true"
@@ -77,8 +77,8 @@
         android:layout_height="80dp"
         android:id="@+id/imageView"
         android:src="@drawable/incline_icon"
-        android:layout_below="@+id/imageButton2"
-        android:layout_alignStart="@+id/imageButton" />
+        android:layout_below="@+id/btnSpeedUp"
+        android:layout_alignStart="@+id/btnInclineUp" />
 
     <ImageView
         android:layout_width="70dp"
@@ -86,7 +86,7 @@
         android:id="@+id/imageView2"
         android:src="@drawable/speed_icon"
         android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/imageButton2" />
+        android:layout_alignEnd="@+id/btnSpeedUp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -104,8 +104,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Speed"
         android:id="@+id/textView2"
-        android:layout_above="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
+        android:layout_above="@+id/etSpeed"
+        android:layout_alignStart="@+id/etSpeed"
         android:textSize="25dp" />
 
     <EditText
@@ -113,25 +113,27 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/etSpeed"
         android:text="0"
         android:gravity="center_horizontal"
-        android:layout_above="@+id/imageButton2"
-        android:layout_alignEnd="@+id/imageButton2"
+        android:layout_above="@+id/btnSpeedUp"
+        android:layout_alignEnd="@+id/btnSpeedUp"
         android:layout_toEndOf="@+id/textClock"
-        android:clickable="true" />
+        android:focusable="false"
+        android:clickable="false"
+        android:enabled="false" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:id="@+id/imageButton3"
+        android:id="@+id/btnSpeedDown"
         android:src="@drawable/ic_remove_white_48dp"
         android:background="#d5d5d5"
         android:layout_below="@+id/imageView2"
         android:layout_alignEnd="@+id/imageView2"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false"
-        android:layout_alignBottom="@+id/imageButton4"
+        android:layout_alignBottom="@+id/btnInclineDown"
         android:clickable="true" />
 
     <EditText
@@ -139,18 +141,20 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/etIncline"
         android:text="0"
         android:gravity="center_horizontal"
-        android:layout_above="@+id/imageButton"
+        android:layout_above="@+id/btnInclineUp"
         android:layout_alignEnd="@+id/textView"
-        android:layout_alignStart="@+id/imageButton"
-        android:clickable="true" />
+        android:layout_alignStart="@+id/btnInclineUp"
+        android:focusable="false"
+        android:clickable="false"
+        android:enabled="false" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton4"
+        android:id="@+id/btnInclineDown"
         android:src="@drawable/ic_expand_more_white_48dp"
         android:layout_below="@+id/imageView"
         android:layout_alignStart="@+id/imageView"
