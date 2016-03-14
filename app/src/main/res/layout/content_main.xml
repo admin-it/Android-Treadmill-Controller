@@ -70,7 +70,8 @@
         android:background="#d5d5d5"
         android:clickable="true"
         android:layout_toEndOf="@+id/textClock"
-        android:layout_above="@+id/imageView2" />
+        android:layout_above="@+id/imageView2"
+        android:visibility="visible" />
 
     <ImageView
         android:layout_width="70dp"

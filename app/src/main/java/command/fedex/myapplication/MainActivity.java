@@ -21,6 +21,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 //Created by Enyil Valle
 public class MainActivity extends AppCompatActivity {
@@ -48,30 +49,30 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //code for bluetooth connection goes here
-                if (!adapter.isEnabled()) {
-                    Snackbar.make(view, "Please enable bluetooth", Snackbar.LENGTH_LONG)
-                            .setAction("Turn on", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Intent enableBluetooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                                    startActivityForResult(enableBluetooth, 1);
-                                }
-                            }).show();
-                } else {
-                    Snackbar.make(view, "Starting bluetooth communication", Snackbar.LENGTH_LONG)
-                            .setAction("Scan", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    IntentFilter filter = new IntentFilter();
-                                    filter.addAction(BluetoothDevice.ACTION_FOUND);
-                                    filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
-                                    filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-                                    registerReceiver(mReceiver, filter);
-                                    adapter.startDiscovery();
-                                }
-                            }).show();
-                }
+//                //code for bluetooth connection goes here
+//                if (!adapter.isEnabled()) {
+//                    Snackbar.make(view, "Please enable bluetooth", Snackbar.LENGTH_LONG)
+//                            .setAction("Turn on", new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//                                    Intent enableBluetooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+//                                    startActivityForResult(enableBluetooth, 1);
+//                                }
+//                            }).show();
+//                } else {
+//                    Snackbar.make(view, "Starting bluetooth communication", Snackbar.LENGTH_LONG)
+//                            .setAction("Scan", new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//                                    IntentFilter filter = new IntentFilter();
+//                                    filter.addAction(BluetoothDevice.ACTION_FOUND);
+//                                    filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
+//                                    filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+//                                    registerReceiver(mReceiver, filter);
+//                                    adapter.startDiscovery();
+//                                }
+//                            }).show();
+//                }
             }
         });
         ImageButton speedUp = (ImageButton) findViewById(R.id.btnSpeedUp);
@@ -286,14 +287,8 @@ public class MainActivity extends AppCompatActivity {
             } else if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 //bluetooth device found
                 final BluetoothDevice device = (BluetoothDevice) intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                Snackbar.make(fab, "Found device " + device.getName(), Snackbar.LENGTH_LONG)
-                        .setAction("Connect", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                //socket = createBluedevice.getAddress();
-                                System.out.println("UUID " + device.getUuids());
-                            }
-                        }).show();
+                Toast.makeText(act, device.getAddress(),Toast.LENGTH_LONG).show();
+                //adapter.listenUsingRfcommWithServiceRecord(adapter.getName(), adapter.MY_UUID);
             }
         }
     };
@@ -326,6 +321,31 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
             return true;
+        } else if (id == R.id.action_bluetooth) {
+            //code for bluetooth connection goes here
+            if (!adapter.isEnabled()) {
+                Snackbar.make(fab, "Please enable bluetooth", Snackbar.LENGTH_LONG)
+                        .setAction("Turn on", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent enableBluetooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                                startActivityForResult(enableBluetooth, 1);
+                            }
+                        }).show();
+            } else {
+                Snackbar.make(fab, "Starting bluetooth communication", Snackbar.LENGTH_LONG)
+                        .setAction("Scan", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                IntentFilter filter = new IntentFilter();
+                                filter.addAction(BluetoothDevice.ACTION_FOUND);
+                                filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
+                                filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+                                registerReceiver(mReceiver, filter);
+                                adapter.startDiscovery();
+                            }
+                        }).show();
+            }
         }
         return super.onOptionsItemSelected(item);
     }
