@@ -6,12 +6,14 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -323,7 +325,18 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_bluetooth) {
             //code for bluetooth connection goes here
-            if (!adapter.isEnabled()) {
+            if (adapter == null){
+                new AlertDialog.Builder(act)
+                        .setTitle("Bluetooth not supported")
+                        .setMessage("This device does not support bluetooth!")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // continue with delete
+                            }
+                        })
+                        .setIcon(android.R.drawable.stat_sys_data_bluetooth)
+                        .show();
+            } else if (!adapter.isEnabled()) {
                 Snackbar.make(fab, "Please enable bluetooth", Snackbar.LENGTH_LONG)
                         .setAction("Turn on", new View.OnClickListener() {
                             @Override

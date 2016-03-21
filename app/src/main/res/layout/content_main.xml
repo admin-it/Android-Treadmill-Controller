@@ -131,7 +131,7 @@
         android:src="@drawable/ic_expand_more_white_48dp"
         android:layout_below="@+id/imageView"
         android:layout_alignStart="@+id/imageView"
-        android:layout_toStartOf="@+id/buttonStop"
+
         android:background="#d5d5d5"
         android:clickable="true" />
 
