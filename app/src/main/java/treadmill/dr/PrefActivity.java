@@ -29,7 +29,6 @@ public class PrefActivity extends AppCompatPreferenceActivity {
 
     private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable();
             if (actionBar != null) {
             // Show the Up button in the action bar.
 
