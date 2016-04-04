@@ -24,8 +24,10 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -75,8 +77,21 @@ public class MainActivity extends AppCompatActivity {
             editor.commit();
         }
 
-
-
+        Button stopButton = (Button) findViewById(R.id.buttonStop);
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if(socket.isConnected())
+                        socket.close();
+                    Toast.makeText(act, "Bluetooth connection closed",Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(act, "Connection is closed.",Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
+            }
+        });
+        Button startButton = (Button) findViewById(R.id.buttonStart);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         act = this;
         adapter = BluetoothAdapter.getDefaultAdapter();
@@ -167,11 +182,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 inclineUp();
-                try {
-                    socket.getOutputStream().write("1".toString().getBytes());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
             }
         });
         inclineUp.setOnLongClickListener(new View.OnLongClickListener() {
@@ -196,11 +206,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 inclineDown();
-                try {
-                    socket.getOutputStream().write("0".toString().getBytes());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
             }
         });
         inclineDown.setOnLongClickListener(new View.OnLongClickListener() {
@@ -259,7 +264,12 @@ public class MainActivity extends AppCompatActivity {
         if(currentSpeed > MAX_SPEED) {
             currentSpeed = MAX_SPEED;
         }
-        Speed.setText(Integer.toString(currentSpeed) + "." + Integer.toString(decimal));
+            try {
+                socket.getOutputStream().write("1".toString().getBytes());
+            } catch (Exception e) {
+                e.printStackTrace();
+                attempBluetooth("Please pair a device");
+            }
     }
 
     public void speedDown() {
@@ -283,7 +293,13 @@ public class MainActivity extends AppCompatActivity {
             currentSpeed = MIN_SPEED;
             decimal = 0;
         }
-        Speed.setText(Integer.toString(currentSpeed) + "." + Integer.toString(decimal));
+            try {
+                socket.getOutputStream().write("0".toString().getBytes());
+            } catch (Exception e) {
+                e.printStackTrace();
+                attempBluetooth("Please pair a device");
+            }
+
     }
 
     //Incline buttons
@@ -292,6 +308,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean inclineDecrement = false;
     class InclineHold implements Runnable {
         public void run() {
+            System.out.println("Handling Incline");
             if( inclineIncrement ){
                 inclineUp();
                 inclineChange.postDelayed( new InclineHold(), CHANGE_DELAY );
@@ -308,7 +325,13 @@ public class MainActivity extends AppCompatActivity {
         if(currentIncline > MAX_INCLINE) {
             currentIncline = MAX_INCLINE;
         }
-        Incline.setText(Integer.toString(currentIncline));
+        try {
+            socket.getOutputStream().write("3".toString().getBytes());
+            Incline.setText(Integer.toString(currentIncline));
+        } catch (Exception e) {
+            e.printStackTrace();
+            attempBluetooth("Please pair a device");
+        }
     }
 
     public void inclineDown() {
@@ -317,7 +340,44 @@ public class MainActivity extends AppCompatActivity {
         if(currentIncline < MIN_INCLINE) {
             currentIncline = MIN_INCLINE;
         }
-        Incline.setText(Integer.toString(currentIncline));
+        try {
+            socket.getOutputStream().write("2".toString().getBytes());
+            Incline.setText(Integer.toString(currentIncline));
+        } catch (Exception e) {
+            e.printStackTrace();
+            attempBluetooth("Please pair a device");
+        }
+    }
+
+    //Bluetooth Handler
+    private Handler bluetoothHandler = new Handler();
+//    private boolean speedIncrement = false;
+//    private boolean speedDecrement = false;
+    class bluetoothMonitor implements Runnable {
+        public void run() {
+            //System.out.println("Handling");
+            if(socket.isConnected()){
+                String d = getDeviceSerialMonitor();
+                if(d.length() > 3) {
+                    String[] data = d.split("\\.");
+                    int currentSpeed;
+                    int decimal;
+                    if (data[0].equals("1")) {
+                        currentSpeed = 10;
+                        decimal = 0;
+                    } else {
+                        //System.out.println(data);
+                        currentSpeed = Character.getNumericValue(data[1].charAt(0));
+                        decimal = Character.getNumericValue(data[1].charAt(1));
+                    }
+                    System.out.println("Updating UI");
+                    Speed.setText(Integer.toString(currentSpeed) + "." + Integer.toString(decimal));
+                }
+                bluetoothHandler.postDelayed(new bluetoothMonitor(), 250);
+            } else {
+                Toast.makeText(act, "Lost bluetooth connection", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     BluetoothSocket socket;
@@ -379,14 +439,23 @@ public class MainActivity extends AppCompatActivity {
                                             Object[] params = new Object[] {Integer.valueOf(1)};
                                             socket = (BluetoothSocket) m.invoke(socket.getRemoteDevice(), params);
                                             socket.connect();
+                                            if(socket.isConnected()){
+                                                //Toast.makeText(act, "Connection Successful", Toast.LENGTH_LONG).show();
+                                                startMonitoring();
+                                                MainActivity.this.runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        Toast.makeText(act, "Connection Sucessful", Toast.LENGTH_LONG).show();
+                                                    }
+                                                });
+                                                try {
+                                                    socket.getOutputStream().write("0".toString().getBytes());
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
                                             //socket.close();
-                                        } catch (IOException e) {
-                                            e.printStackTrace();
-                                        } catch (InvocationTargetException e) {
-                                            e.printStackTrace();
-                                        } catch (NoSuchMethodException e) {
-                                            e.printStackTrace();
-                                        } catch (IllegalAccessException e) {
+                                        } catch (Exception e) {
                                             e.printStackTrace();
                                         }
                                     }
@@ -419,7 +488,10 @@ public class MainActivity extends AppCompatActivity {
                 BluetoothDevice device = (BluetoothDevice) intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 try {
                     deviceList.add(device);
-                    arrayAdapter.add(device.getName());
+                    if(device.getName() != null)
+                        arrayAdapter.add(device.getName());
+                    else
+                        arrayAdapter.add("Generic Name");
                 } catch (Exception e){
 
                 }
@@ -469,41 +541,81 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_bluetooth) {
             //code for bluetooth connection goes here
-            if (adapter == null){
-                new AlertDialog.Builder(act)
-                        .setTitle("Bluetooth not supported")
-                        .setMessage("This device does not support bluetooth!")
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // continue with delete
-                            }
-                        })
-                        .setIcon(android.R.drawable.stat_sys_data_bluetooth)
-                        .show();
-            } else if (!adapter.isEnabled()) {
-                Snackbar.make(fab, "Please enable bluetooth", Snackbar.LENGTH_LONG)
-                        .setAction("Turn on", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent enableBluetooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                                startActivityForResult(enableBluetooth, 1);
-                            }
-                        }).show();
-            } else {
-                Snackbar.make(fab, "Starting bluetooth communication", Snackbar.LENGTH_LONG)
-                        .setAction("Scan", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                IntentFilter filter = new IntentFilter();
-                                filter.addAction(BluetoothDevice.ACTION_FOUND);
-                                filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
-                                filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-                                registerReceiver(mReceiver, filter);
-                                adapter.startDiscovery();
-                            }
-                        }).show();
-            }
+            attempBluetooth("Starting bluetooth communication");
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void attempBluetooth(String text){
+        if (adapter == null){
+            new AlertDialog.Builder(act)
+                    .setTitle("Bluetooth not supported")
+                    .setMessage("This device does not support bluetooth!")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                        }
+                    })
+                    .setIcon(android.R.drawable.stat_sys_data_bluetooth)
+                    .show();
+        } else if (!adapter.isEnabled()) {
+            Snackbar.make(fab, "Please enable bluetooth", Snackbar.LENGTH_LONG)
+                    .setAction("Turn on", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent enableBluetooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                            startActivityForResult(enableBluetooth, 1);
+                        }
+                    }).show();
+        } else {
+            Snackbar.make(fab, text, Snackbar.LENGTH_LONG)
+                    .setAction("Scan", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            IntentFilter filter = new IntentFilter();
+                            filter.addAction(BluetoothDevice.ACTION_FOUND);
+                            filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
+                            filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+                            registerReceiver(mReceiver, filter);
+                            adapter.startDiscovery();
+                        }
+                    }).show();
+        }
+    }
+
+    public String getDeviceSerialMonitor() {
+        int readBufferPosition = 0;
+        byte[] readBuffer = new byte[1024];
+        String data = "";
+        try {
+            int bytesAvailable = socket.getInputStream().available();
+            if(bytesAvailable > 0) {
+                byte[] packetBytes = new byte[bytesAvailable];
+                socket.getInputStream().read(packetBytes);
+                for(int i=0;i<bytesAvailable;i++) {
+                    byte b = packetBytes[i];
+                    if(b == 10) {
+                        byte[] encodedBytes = new byte[readBufferPosition];
+                        System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
+                        readBufferPosition = 0;
+                        System.out.println(data);
+                        data += new String(encodedBytes, "US-ASCII");
+                    } else {
+                        readBuffer[readBufferPosition++] = b;
+                        //return data;
+                    }
+                }
+            }
+        }
+        catch (Exception ex) {
+            return data;
+        }
+        if(data.length() > 4)
+            data = data.substring(data.length()-4);
+        return data;
+    }
+
+    public void startMonitoring(){
+        new Thread(new bluetoothMonitor()).start();
     }
 }
