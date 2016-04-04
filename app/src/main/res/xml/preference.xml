@@ -13,7 +13,7 @@
         android:key="SPRSPD"
         android:defaultValue="15.0"
         android:entries="@array/mileArray"
-        android:entryValues="@array/mileArray"
+        android:entryValues="@array/mileArrayValue"
         />
     <ListPreference     android:title="Max Incline"
         android:summary="Select the max incline of your treadmill."
@@ -23,9 +23,11 @@
         android:entryValues="@array/incmArray"
         />
 
-    <EditTextPreference     android:title="Weight"
+    <ListPreference     android:title="Weight"
         android:summary="Enter your weight for calorie analysis."
         android:key="WGHT"
         android:defaultValue="150"
+        android:entries="@array/poundArray"
+        android:entryValues="@array/poundArrayValue"
         />
 </PreferenceScreen>
