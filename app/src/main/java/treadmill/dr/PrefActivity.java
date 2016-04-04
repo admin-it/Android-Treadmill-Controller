@@ -1,4 +1,4 @@
-package command.fedex.myapplication;
+package treadmill.dr;
 
         import android.os.Bundle;
         import android.preference.PreferenceActivity;

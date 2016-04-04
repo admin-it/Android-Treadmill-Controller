@@ -1,4 +1,4 @@
-package command.fedex.myapplication;
+package command.fedex.treadmill;
 
 import org.junit.Test;
 
