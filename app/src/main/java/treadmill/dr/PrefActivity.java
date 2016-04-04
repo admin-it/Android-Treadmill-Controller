@@ -1,4 +1,4 @@
-package command.fedex.myapplication;
+package treadmill.dr;
 
         import android.content.Intent;
         import android.graphics.drawable.ColorDrawable;

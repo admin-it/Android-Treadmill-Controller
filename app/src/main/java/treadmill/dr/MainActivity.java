@@ -1,6 +1,7 @@
-package command.fedex.myapplication;
+package treadmill.dr;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -22,9 +23,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
+
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.UUID;
 
 //Created by Enyil Valle
 public class MainActivity extends AppCompatActivity {
@@ -160,6 +167,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 inclineUp();
+                try {
+                    socket.getOutputStream().write("1".toString().getBytes());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         inclineUp.setOnLongClickListener(new View.OnLongClickListener() {
@@ -184,6 +196,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 inclineDown();
+                try {
+                    socket.getOutputStream().write("0".toString().getBytes());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         inclineDown.setOnLongClickListener(new View.OnLongClickListener() {
@@ -304,17 +321,109 @@ public class MainActivity extends AppCompatActivity {
     }
 
     BluetoothSocket socket;
+    ArrayList<BluetoothDevice> deviceList = new ArrayList<BluetoothDevice>();
+    ArrayAdapter<String> arrayAdapter;
+    ProgressDialog dialog;
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (BluetoothAdapter.ACTION_DISCOVERY_STARTED.equals(action)) {
+                Log.d("BLUETOOTH", "START DISCOVERY");
+                //deviceList = new ArrayList<BluetoothDevice>();
+                dialog = ProgressDialog.show(act, "",
+                        "Scanning for devices...", true);
+                deviceList = new ArrayList<BluetoothDevice>();
+                arrayAdapter = new ArrayAdapter<String>(
+                        act,
+                        android.R.layout.select_dialog_singlechoice);;
                 //discovery starts, we can show progress dialog or perform other tasks
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
-                //discovery finishes, dismis progress dialog
+                Log.d("BLUETOOTH", "DONE DISCOVERY");
+                dialog.dismiss();
+                AlertDialog.Builder builderSingle = new AlertDialog.Builder(act);
+                //builderSingle.setIcon();
+                builderSingle.setTitle("Select a device to connect: ");
+                //arrayAdapter = new ArrayAdapter<String>(
+                  //      act,
+                    //    android.R.layout.select_dialog_singlechoice);
+//               for(String s : deviceList){
+//                   arrayAdapter.add(s);
+//               }
+                builderSingle.setNegativeButton(
+                        "cancel",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                builderSingle.setAdapter(
+                        arrayAdapter,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String strName = arrayAdapter.getItem(which);
+                                dialog.dismiss();
+                                final int lewitch = which;
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            //System.out.println("Bluetooth Bond " + deviceList.get(which).createBond());
+                                            UUID id = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+                                            socket = deviceList.get(lewitch).createRfcommSocketToServiceRecord(id);
+                                            //socket.connect();
+                                            Class<?> clazz = socket.getRemoteDevice().getClass();
+                                            Class<?>[] paramTypes = new Class<?>[] {Integer.TYPE};
+                                            Method m = clazz.getMethod("createRfcommSocket", paramTypes);
+                                            Object[] params = new Object[] {Integer.valueOf(1)};
+                                            socket = (BluetoothSocket) m.invoke(socket.getRemoteDevice(), params);
+                                            socket.connect();
+                                            //socket.close();
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        } catch (InvocationTargetException e) {
+                                            e.printStackTrace();
+                                        } catch (NoSuchMethodException e) {
+                                            e.printStackTrace();
+                                        } catch (IllegalAccessException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }).start();
+//                                AlertDialog.Builder builderInner = new AlertDialog.Builder(
+//                                        act);
+//                                builderInner.setMessage("Establishing Connection");
+//                                builderInner.setTitle("Connect to " + strName + "?");
+//                                builderInner.setPositiveButton(
+//                                        "Yes",
+//                                        new DialogInterface.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(
+//                                                    DialogInterface dialog,
+//                                                    int which) {
+//
+//                                                dialog.dismiss();
+//                                            }
+//                                        }).setNegativeButton("No", null);
+//                                builderInner.show();
+
+                                //connecting code
+
+                            }
+                        });
+                builderSingle.show();
             } else if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 //bluetooth device found
-                final BluetoothDevice device = (BluetoothDevice) intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                Toast.makeText(act, device.getAddress(),Toast.LENGTH_LONG).show();
+                Log.d("BLUETOOTH", "NEW DEVICE FOUND");
+                BluetoothDevice device = (BluetoothDevice) intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                try {
+                    deviceList.add(device);
+                    arrayAdapter.add(device.getName());
+                } catch (Exception e){
+
+                }
+                //Toast.makeText(act, device.getAddress(),Toast.LENGTH_LONG).show();
                 //adapter.listenUsingRfcommWithServiceRecord(adapter.getName(), adapter.MY_UUID);
             }
         }
@@ -335,6 +444,16 @@ public class MainActivity extends AppCompatActivity {
 
         }
         super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        try {
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        super.onBackPressed();
     }
 
     @Override
