@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        android:key= "TRSMCT"
+    <ListPreference     android:title="Miles or Kilometers"
+        android:summary="Select Kilometers or Miles."
+        android:key="EORA"
+        android:defaultValue="Miles"
+        android:entries="@array/changeArray"
+        android:entryValues="@array/changeArray"
+        />
+    <ListPreference     android:title="Max Speed"
+        android:summary="Select the max speed of your treadmill."
+        android:key="SPRSPD"
+        android:defaultValue="15.0"
+        android:entries="@array/mileArray"
+        android:entryValues="@array/mileArray"
+        />
+    <ListPreference     android:title="Max Incline"
+        android:summary="Select the max incline of your treadmill."
+        android:key="MTEV"
+        android:defaultValue="1.0"
+        android:entries="@array/incmArray"
+        android:entryValues="@array/incmArray"
+        />
+
+    <EditTextPreference     android:title="Weight"
+        android:summary="Enter your weight for calorie analysis."
+        android:key="WGHT"
+        android:defaultValue="150"
+        />
+</PreferenceScreen>

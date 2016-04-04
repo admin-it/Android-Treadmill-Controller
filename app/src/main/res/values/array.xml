@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="changeArray">
+        <item>Miles</item>
+        <item>Kilometers</item>
+    </string-array>
+
+
+    <string-array name="kiloArray">
+        <item>16.00</item>
+        <item>17.60</item>
+        <item>19.20</item>
+        <item>20.80</item>
+        <item>22.40</item>
+        <item>24.00</item>
+        <item>25.60</item>
+        <item>27.20</item>
+        <item>28.80</item>
+        <item>30.40</item>
+        <item>32.00</item>
+        <item>33.60</item>
+        <item>35.20</item>
+        <item>36.80</item>
+        <item>38.40</item>
+        <item>40.00</item>
+    </string-array>
+
+    <string-array name="mileArray">
+        <item>10.00</item>
+        <item>11.00</item>
+        <item>12.00</item>
+        <item>13.00</item>
+        <item>14.00</item>
+        <item>15.00</item>
+        <item>16.00</item>
+        <item>17.00</item>
+        <item>18.00</item>
+        <item>19.00</item>
+        <item>20.00</item>
+        <item>21.00</item>
+        <item>22.00</item>
+        <item>23.00</item>
+        <item>24.00</item>
+        <item>25.00</item>
+    </string-array>
+
+    <string-array name="incmArray">
+        <item>0.50</item>
+        <item>0.60</item>
+        <item>0.70</item>
+        <item>0.80</item>
+        <item>0.90</item>
+        <item>1.00</item>
+        <item>1.10</item>
+        <item>1.20</item>
+        <item>1.30</item>
+        <item>1.40</item>
+        <item>1.50</item>
+    </string-array>
+
+
+</resources>

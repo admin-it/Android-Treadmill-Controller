@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -33,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     int MAX_INCLINE = 15;
     int MIN_INCLINE = 0;
     int CHANGE_DELAY = 200;
+    SharedPreferences sharedpreferences;
+    public static final String SaveData = "TRSMCT" ;
+    public static final String WData = "WGHT" ;
+    public static final String MSP = "SPRSPD" ;
+    public static final String MINC = "MTEV" ;
+    public static final String KPHMPH = "EORA" ;
     EditText Speed;
     EditText Incline;
     BluetoothAdapter adapter;
@@ -45,6 +52,24 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setLogo(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
+        String weight = null, incline = null, speed = null, type = null;
+        sharedpreferences = getSharedPreferences(SaveData, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        weight = sharedpreferences.getString(WData, null);
+        speed = sharedpreferences.getString(MSP, null);
+        incline = sharedpreferences.getString(MINC, null);
+        type = sharedpreferences.getString(KPHMPH, null);
+        if(weight == null | incline == null | speed == null | type == null)
+        {
+            editor.putString(WData, "200");
+            editor.putString(MSP, "15.0");
+            editor.putString(MINC, "1.0");
+            editor.putString(KPHMPH, "Mile");
+            editor.commit();
+        }
+
+
+
         fab = (FloatingActionButton) findViewById(R.id.fab);
         act = this;
         adapter = BluetoothAdapter.getDefaultAdapter();
@@ -320,7 +345,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
+            Intent intent = new Intent(this, PrefActivity.class);
             startActivity(intent);
             return true;
         } else if (id == R.id.action_bluetooth) {
