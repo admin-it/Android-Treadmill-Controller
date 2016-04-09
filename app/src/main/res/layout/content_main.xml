@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="command.fedex.myapplication.MainActivity"
@@ -137,8 +137,8 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true"
         android:weightSum="2"
         android:layout_centerHorizontal="true">
@@ -148,12 +148,9 @@
             android:layout_height="fill_parent"
             android:text="START"
             android:id="@+id/buttonStart"
-            android:layout_gravity="bottom|left"
             android:background="#00ff00"
             android:textColor="#ffffff"
-            android:height="55dp"
             android:textSize="17dp"
-            android:layout_margin="10dp"
             android:clickable="true"
             android:layout_weight="1"/>
 
@@ -166,7 +163,7 @@
             android:textColor="#ffffff"
             android:textSize="17dp"
             android:clickable="true"
-            android:layout_margin="10dp"
+
             android:layout_weight="1"/>
     </LinearLayout>
 
