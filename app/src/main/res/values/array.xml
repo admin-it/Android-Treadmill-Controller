@@ -1,0 +1,1159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="changeArray">
+        <item>Miles</item>
+        <item>Kilometers</item>
+    </string-array>
+
+
+    <string-array name="kiloArray">
+        <item>16.00 kph</item>
+        <item>17.60 kph</item>
+        <item>19.20 kph</item>
+        <item>20.80 kph</item>
+        <item>22.40 kph</item>
+        <item>24.00 kph</item>
+        <item>25.60 kph</item>
+        <item>27.20 kph</item>
+        <item>28.80 kph</item>
+        <item>30.40 kph</item>
+        <item>32.00 kph</item>
+        <item>33.60 kph</item>
+        <item>35.20 kph</item>
+        <item>36.80 kph</item>
+        <item>38.40 kph</item>
+        <item>40.00 kph</item>
+    </string-array>
+
+    <string-array name="kiloArrayValue">
+        <item>16.00</item>
+        <item>17.60</item>
+        <item>19.20</item>
+        <item>20.80</item>
+        <item>22.40</item>
+        <item>24.00</item>
+        <item>25.60</item>
+        <item>27.20</item>
+        <item>28.80</item>
+        <item>30.40</item>
+        <item>32.00</item>
+        <item>33.60</item>
+        <item>35.20</item>
+        <item>36.80</item>
+        <item>38.40</item>
+        <item>40.00</item>
+    </string-array>
+
+    <string-array name="mileArray">
+        <item>10.00 mph</item>
+        <item>11.00 mph</item>
+        <item>12.00 mph</item>
+        <item>13.00 mph</item>
+        <item>14.00 mph</item>
+        <item>15.00 mph</item>
+        <item>16.00 mph</item>
+        <item>17.00 mph</item>
+        <item>18.00 mph</item>
+        <item>19.00 mph</item>
+        <item>20.00 mph</item>
+        <item>21.00 mph</item>
+        <item>22.00 mph</item>
+        <item>23.00 mph</item>
+        <item>24.00 mph</item>
+        <item>25.00 mph</item>
+    </string-array>
+
+    <string-array name="mileArrayValue">
+        <item>10.00</item>
+        <item>11.00</item>
+        <item>12.00</item>
+        <item>13.00</item>
+        <item>14.00</item>
+        <item>15.00</item>
+        <item>16.00</item>
+        <item>17.00</item>
+        <item>18.00</item>
+        <item>19.00</item>
+        <item>20.00</item>
+        <item>21.00</item>
+        <item>22.00</item>
+        <item>23.00</item>
+        <item>24.00</item>
+        <item>25.00</item>
+    </string-array>
+
+    <string-array name="incmArray">
+        <item>0.50</item>
+        <item>0.60</item>
+        <item>0.70</item>
+        <item>0.80</item>
+        <item>0.90</item>
+        <item>1.00</item>
+        <item>1.10</item>
+        <item>1.20</item>
+        <item>1.30</item>
+        <item>1.40</item>
+        <item>1.50</item>
+    </string-array>
+
+    <string-array name="poundArray">
+        <item>50 lbs</item>
+        <item>51 lbs</item>
+        <item>52 lbs</item>
+        <item>53 lbs</item>
+        <item>54 lbs</item>
+        <item>55 lbs</item>
+        <item>56 lbs</item>
+        <item>57 lbs</item>
+        <item>58 lbs</item>
+        <item>59 lbs</item>
+        <item>60 lbs</item>
+        <item>61 lbs</item>
+        <item>62 lbs</item>
+        <item>63 lbs</item>
+        <item>64 lbs</item>
+        <item>65 lbs</item>
+        <item>66 lbs</item>
+        <item>67 lbs</item>
+        <item>68 lbs</item>
+        <item>69 lbs</item>
+        <item>70 lbs</item>
+        <item>71 lbs</item>
+        <item>72 lbs</item>
+        <item>73 lbs</item>
+        <item>74 lbs</item>
+        <item>75 lbs</item>
+        <item>76 lbs</item>
+        <item>77 lbs</item>
+        <item>78 lbs</item>
+        <item>79 lbs</item>
+        <item>80 lbs</item>
+        <item>81 lbs</item>
+        <item>82 lbs</item>
+        <item>83 lbs</item>
+        <item>84 lbs</item>
+        <item>85 lbs</item>
+        <item>86 lbs</item>
+        <item>87 lbs</item>
+        <item>88 lbs</item>
+        <item>89 lbs</item>
+        <item>90 lbs</item>
+        <item>91 lbs</item>
+        <item>92 lbs</item>
+        <item>93 lbs</item>
+        <item>94 lbs</item>
+        <item>95 lbs</item>
+        <item>96 lbs</item>
+        <item>97 lbs</item>
+        <item>98 lbs</item>
+        <item>99 lbs</item>
+        <item>100 lbs</item>
+        <item>101 lbs</item>
+        <item>102 lbs</item>
+        <item>103 lbs</item>
+        <item>104 lbs</item>
+        <item>105 lbs</item>
+        <item>106 lbs</item>
+        <item>107 lbs</item>
+        <item>108 lbs</item>
+        <item>109 lbs</item>
+        <item>110 lbs</item>
+        <item>111 lbs</item>
+        <item>112 lbs</item>
+        <item>113 lbs</item>
+        <item>114 lbs</item>
+        <item>115 lbs</item>
+        <item>116 lbs</item>
+        <item>117 lbs</item>
+        <item>118 lbs</item>
+        <item>119 lbs</item>
+        <item>120 lbs</item>
+        <item>121 lbs</item>
+        <item>122 lbs</item>
+        <item>123 lbs</item>
+        <item>124 lbs</item>
+        <item>125 lbs</item>
+        <item>126 lbs</item>
+        <item>127 lbs</item>
+        <item>128 lbs</item>
+        <item>129 lbs</item>
+        <item>130 lbs</item>
+        <item>131 lbs</item>
+        <item>132 lbs</item>
+        <item>133 lbs</item>
+        <item>134 lbs</item>
+        <item>135 lbs</item>
+        <item>136 lbs</item>
+        <item>137 lbs</item>
+        <item>138 lbs</item>
+        <item>139 lbs</item>
+        <item>140 lbs</item>
+        <item>141 lbs</item>
+        <item>142 lbs</item>
+        <item>143 lbs</item>
+        <item>144 lbs</item>
+        <item>145 lbs</item>
+        <item>146 lbs</item>
+        <item>147 lbs</item>
+        <item>148 lbs</item>
+        <item>149 lbs</item>
+        <item>150 lbs</item>
+        <item>151 lbs</item>
+        <item>152 lbs</item>
+        <item>153 lbs</item>
+        <item>154 lbs</item>
+        <item>155 lbs</item>
+        <item>156 lbs</item>
+        <item>157 lbs</item>
+        <item>158 lbs</item>
+        <item>159 lbs</item>
+        <item>160 lbs</item>
+        <item>161 lbs</item>
+        <item>162 lbs</item>
+        <item>163 lbs</item>
+        <item>164 lbs</item>
+        <item>165 lbs</item>
+        <item>166 lbs</item>
+        <item>167 lbs</item>
+        <item>168 lbs</item>
+        <item>169 lbs</item>
+        <item>170 lbs</item>
+        <item>171 lbs</item>
+        <item>172 lbs</item>
+        <item>173 lbs</item>
+        <item>174 lbs</item>
+        <item>175 lbs</item>
+        <item>176 lbs</item>
+        <item>177 lbs</item>
+        <item>178 lbs</item>
+        <item>179 lbs</item>
+        <item>180 lbs</item>
+        <item>181 lbs</item>
+        <item>182 lbs</item>
+        <item>183 lbs</item>
+        <item>184 lbs</item>
+        <item>185 lbs</item>
+        <item>186 lbs</item>
+        <item>187 lbs</item>
+        <item>188 lbs</item>
+        <item>189 lbs</item>
+        <item>190 lbs</item>
+        <item>191 lbs</item>
+        <item>192 lbs</item>
+        <item>193 lbs</item>
+        <item>194 lbs</item>
+        <item>195 lbs</item>
+        <item>196 lbs</item>
+        <item>197 lbs</item>
+        <item>198 lbs</item>
+        <item>199 lbs</item>
+        <item>200 lbs</item>
+        <item>201 lbs</item>
+        <item>202 lbs</item>
+        <item>203 lbs</item>
+        <item>204 lbs</item>
+        <item>205 lbs</item>
+        <item>206 lbs</item>
+        <item>207 lbs</item>
+        <item>208 lbs</item>
+        <item>209 lbs</item>
+        <item>210 lbs</item>
+        <item>211 lbs</item>
+        <item>212 lbs</item>
+        <item>213 lbs</item>
+        <item>214 lbs</item>
+        <item>215 lbs</item>
+        <item>216 lbs</item>
+        <item>217 lbs</item>
+        <item>218 lbs</item>
+        <item>219 lbs</item>
+        <item>220 lbs</item>
+        <item>221 lbs</item>
+        <item>222 lbs</item>
+        <item>223 lbs</item>
+        <item>224 lbs</item>
+        <item>225 lbs</item>
+        <item>226 lbs</item>
+        <item>227 lbs</item>
+        <item>228 lbs</item>
+        <item>229 lbs</item>
+        <item>230 lbs</item>
+        <item>231 lbs</item>
+        <item>232 lbs</item>
+        <item>233 lbs</item>
+        <item>234 lbs</item>
+        <item>235 lbs</item>
+        <item>236 lbs</item>
+        <item>237 lbs</item>
+        <item>238 lbs</item>
+        <item>239 lbs</item>
+        <item>240 lbs</item>
+        <item>241 lbs</item>
+        <item>242 lbs</item>
+        <item>243 lbs</item>
+        <item>244 lbs</item>
+        <item>245 lbs</item>
+        <item>246 lbs</item>
+        <item>247 lbs</item>
+        <item>248 lbs</item>
+        <item>249 lbs</item>
+        <item>250 lbs</item>
+        <item>251 lbs</item>
+        <item>252 lbs</item>
+        <item>253 lbs</item>
+        <item>254 lbs</item>
+        <item>255 lbs</item>
+        <item>256 lbs</item>
+        <item>257 lbs</item>
+        <item>258 lbs</item>
+        <item>259 lbs</item>
+        <item>260 lbs</item>
+        <item>261 lbs</item>
+        <item>262 lbs</item>
+        <item>263 lbs</item>
+        <item>264 lbs</item>
+        <item>265 lbs</item>
+        <item>266 lbs</item>
+        <item>267 lbs</item>
+        <item>268 lbs</item>
+        <item>269 lbs</item>
+        <item>270 lbs</item>
+        <item>271 lbs</item>
+        <item>272 lbs</item>
+        <item>273 lbs</item>
+        <item>274 lbs</item>
+        <item>275 lbs</item>
+        <item>276 lbs</item>
+        <item>277 lbs</item>
+        <item>278 lbs</item>
+        <item>279 lbs</item>
+        <item>280 lbs</item>
+        <item>281 lbs</item>
+        <item>282 lbs</item>
+        <item>283 lbs</item>
+        <item>284 lbs</item>
+        <item>285 lbs</item>
+        <item>286 lbs</item>
+        <item>287 lbs</item>
+        <item>288 lbs</item>
+        <item>289 lbs</item>
+        <item>290 lbs</item>
+        <item>291 lbs</item>
+        <item>292 lbs</item>
+        <item>293 lbs</item>
+        <item>294 lbs</item>
+        <item>295 lbs</item>
+        <item>296 lbs</item>
+        <item>297 lbs</item>
+        <item>298 lbs</item>
+        <item>299 lbs</item>
+        <item>300 lbs</item>
+        <item>301 lbs</item>
+        <item>302 lbs</item>
+        <item>303 lbs</item>
+        <item>304 lbs</item>
+        <item>305 lbs</item>
+        <item>306 lbs</item>
+        <item>307 lbs</item>
+        <item>308 lbs</item>
+        <item>309 lbs</item>
+        <item>310 lbs</item>
+        <item>311 lbs</item>
+        <item>312 lbs</item>
+        <item>313 lbs</item>
+        <item>314 lbs</item>
+        <item>315 lbs</item>
+        <item>316 lbs</item>
+        <item>317 lbs</item>
+        <item>318 lbs</item>
+        <item>319 lbs</item>
+        <item>320 lbs</item>
+        <item>321 lbs</item>
+        <item>322 lbs</item>
+        <item>323 lbs</item>
+        <item>324 lbs</item>
+        <item>325 lbs</item>
+        <item>326 lbs</item>
+        <item>327 lbs</item>
+        <item>328 lbs</item>
+        <item>329 lbs</item>
+        <item>330 lbs</item>
+        <item>331 lbs</item>
+        <item>332 lbs</item>
+        <item>333 lbs</item>
+        <item>334 lbs</item>
+        <item>335 lbs</item>
+        <item>336 lbs</item>
+        <item>337 lbs</item>
+        <item>338 lbs</item>
+        <item>339 lbs</item>
+        <item>340 lbs</item>
+        <item>341 lbs</item>
+        <item>342 lbs</item>
+        <item>343 lbs</item>
+        <item>344 lbs</item>
+        <item>345 lbs</item>
+        <item>346 lbs</item>
+        <item>347 lbs</item>
+        <item>348 lbs</item>
+        <item>349 lbs</item>
+        <item>350 lbs</item>
+        <item>351 lbs</item>
+        <item>352 lbs</item>
+        <item>353 lbs</item>
+        <item>354 lbs</item>
+        <item>355 lbs</item>
+        <item>356 lbs</item>
+        <item>357 lbs</item>
+        <item>358 lbs</item>
+        <item>359 lbs</item>
+        <item>360 lbs</item>
+        <item>361 lbs</item>
+        <item>362 lbs</item>
+        <item>363 lbs</item>
+        <item>364 lbs</item>
+        <item>365 lbs</item>
+        <item>366 lbs</item>
+        <item>367 lbs</item>
+        <item>368 lbs</item>
+        <item>369 lbs</item>
+        <item>370 lbs</item>
+        <item>371 lbs</item>
+        <item>372 lbs</item>
+        <item>373 lbs</item>
+        <item>374 lbs</item>
+        <item>375 lbs</item>
+        <item>376 lbs</item>
+        <item>377 lbs</item>
+        <item>378 lbs</item>
+        <item>379 lbs</item>
+        <item>380 lbs</item>
+        <item>381 lbs</item>
+        <item>382 lbs</item>
+        <item>383 lbs</item>
+        <item>384 lbs</item>
+        <item>385 lbs</item>
+        <item>386 lbs</item>
+        <item>387 lbs</item>
+        <item>388 lbs</item>
+        <item>389 lbs</item>
+        <item>390 lbs</item>
+        <item>391 lbs</item>
+        <item>392 lbs</item>
+        <item>393 lbs</item>
+        <item>394 lbs</item>
+        <item>395 lbs</item>
+        <item>396 lbs</item>
+        <item>397 lbs</item>
+        <item>398 lbs</item>
+        <item>399 lbs</item>
+        <item>400 lbs</item>
+    </string-array>
+    <string-array name="kilogArray">
+        <item>22.5 kg</item>
+        <item>22.95 kg</item>
+        <item>23.4 kg</item>
+        <item>23.85 kg</item>
+        <item>24.3 kg</item>
+        <item>24.75 kg</item>
+        <item>25.2 kg</item>
+        <item>25.65 kg</item>
+        <item>26.1 kg</item>
+        <item>26.55 kg</item>
+        <item>27.0 kg</item>
+        <item>27.45 kg</item>
+        <item>27.9 kg</item>
+        <item>28.35 kg</item>
+        <item>28.8 kg</item>
+        <item>29.25 kg</item>
+        <item>29.7 kg</item>
+        <item>30.15 kg</item>
+        <item>30.6 kg</item>
+        <item>31.05 kg</item>
+        <item>31.5 kg</item>
+        <item>31.95 kg</item>
+        <item>32.4 kg</item>
+        <item>32.85 kg</item>
+        <item>33.3 kg</item>
+        <item>33.75 kg</item>
+        <item>34.2 kg</item>
+        <item>34.65 kg</item>
+        <item>35.1 kg</item>
+        <item>35.55 kg</item>
+        <item>36.0 kg</item>
+        <item>36.45 kg</item>
+        <item>36.9 kg</item>
+        <item>37.35 kg</item>
+        <item>37.8 kg</item>
+        <item>38.25 kg</item>
+        <item>38.7 kg</item>
+        <item>39.15 kg</item>
+        <item>39.6 kg</item>
+        <item>40.05 kg</item>
+        <item>40.5 kg</item>
+        <item>40.95 kg</item>
+        <item>41.4 kg</item>
+        <item>41.85 kg</item>
+        <item>42.3 kg</item>
+        <item>42.75 kg</item>
+        <item>43.2 kg</item>
+        <item>43.65 kg</item>
+        <item>44.1 kg</item>
+        <item>44.55 kg</item>
+        <item>45.0 kg</item>
+        <item>45.45 kg</item>
+        <item>45.9 kg</item>
+        <item>46.35 kg</item>
+        <item>46.8 kg</item>
+        <item>47.25 kg</item>
+        <item>47.7 kg</item>
+        <item>48.15 kg</item>
+        <item>48.6 kg</item>
+        <item>49.05 kg</item>
+        <item>49.5 kg</item>
+        <item>49.95 kg</item>
+        <item>50.4 kg</item>
+        <item>50.85 kg</item>
+        <item>51.3 kg</item>
+        <item>51.75 kg</item>
+        <item>52.2 kg</item>
+        <item>52.65 kg</item>
+        <item>53.1 kg</item>
+        <item>53.55 kg</item>
+        <item>54.0 kg</item>
+        <item>54.45 kg</item>
+        <item>54.9 kg</item>
+        <item>55.35 kg</item>
+        <item>55.8 kg</item>
+        <item>56.25 kg</item>
+        <item>56.7 kg</item>
+        <item>57.15 kg</item>
+        <item>57.6 kg</item>
+        <item>58.05 kg</item>
+        <item>58.5 kg</item>
+        <item>58.95 kg</item>
+        <item>59.4 kg</item>
+        <item>59.85 kg</item>
+        <item>60.3 kg</item>
+        <item>60.75 kg</item>
+        <item>61.2 kg</item>
+        <item>61.65 kg</item>
+        <item>62.1 kg</item>
+        <item>62.55 kg</item>
+        <item>63.0 kg</item>
+        <item>63.45 kg</item>
+        <item>63.9 kg</item>
+        <item>64.35 kg</item>
+        <item>64.8 kg</item>
+        <item>65.25 kg</item>
+        <item>65.7 kg</item>
+        <item>66.15 kg</item>
+        <item>66.6 kg</item>
+        <item>67.05 kg</item>
+        <item>67.5 kg</item>
+        <item>67.95 kg</item>
+        <item>68.4 kg</item>
+        <item>68.85 kg</item>
+        <item>69.3 kg</item>
+        <item>69.75 kg</item>
+        <item>70.2 kg</item>
+        <item>70.65 kg</item>
+        <item>71.1 kg</item>
+        <item>71.55 kg</item>
+        <item>72.0 kg</item>
+        <item>72.45 kg</item>
+        <item>72.9 kg</item>
+        <item>73.35 kg</item>
+        <item>73.8 kg</item>
+        <item>74.25 kg</item>
+        <item>74.7 kg</item>
+        <item>75.15 kg</item>
+        <item>75.6 kg</item>
+        <item>76.05 kg</item>
+        <item>76.5 kg</item>
+        <item>76.95 kg</item>
+        <item>77.4 kg</item>
+        <item>77.85 kg</item>
+        <item>78.3 kg</item>
+        <item>78.75 kg</item>
+        <item>79.2 kg</item>
+        <item>79.65 kg</item>
+        <item>80.1 kg</item>
+        <item>80.55 kg</item>
+        <item>81.0 kg</item>
+        <item>81.45 kg</item>
+        <item>81.9 kg</item>
+        <item>82.35 kg</item>
+        <item>82.8 kg</item>
+        <item>83.25 kg</item>
+        <item>83.7 kg</item>
+        <item>84.15 kg</item>
+        <item>84.6 kg</item>
+        <item>85.05 kg</item>
+        <item>85.5 kg</item>
+        <item>85.95 kg</item>
+        <item>86.4 kg</item>
+        <item>86.85 kg</item>
+        <item>87.3 kg</item>
+        <item>87.75 kg</item>
+        <item>88.2 kg</item>
+        <item>88.65 kg</item>
+        <item>89.1 kg</item>
+        <item>89.55 kg</item>
+        <item>90.0 kg</item>
+        <item>90.45 kg</item>
+        <item>90.9 kg</item>
+        <item>91.35 kg</item>
+        <item>91.8 kg</item>
+        <item>92.25 kg</item>
+        <item>92.7 kg</item>
+        <item>93.15 kg</item>
+        <item>93.6 kg</item>
+        <item>94.05 kg</item>
+        <item>94.5 kg</item>
+        <item>94.95 kg</item>
+        <item>95.4 kg</item>
+        <item>95.85 kg</item>
+        <item>96.3 kg</item>
+        <item>96.75 kg</item>
+        <item>97.2 kg</item>
+        <item>97.65 kg</item>
+        <item>98.1 kg</item>
+        <item>98.55 kg</item>
+        <item>99.0 kg</item>
+        <item>99.45 kg</item>
+        <item>99.9 kg</item>
+        <item>100.35 kg</item>
+        <item>100.8 kg</item>
+        <item>101.25 kg</item>
+        <item>101.7 kg</item>
+        <item>102.15 kg</item>
+        <item>102.6 kg</item>
+        <item>103.05 kg</item>
+        <item>103.5 kg</item>
+        <item>103.95 kg</item>
+        <item>104.4 kg</item>
+        <item>104.85 kg</item>
+        <item>105.3 kg</item>
+        <item>105.75 kg</item>
+        <item>106.2 kg</item>
+        <item>106.65 kg</item>
+        <item>107.1 kg</item>
+        <item>107.55 kg</item>
+        <item>108.0 kg</item>
+        <item>108.45 kg</item>
+        <item>108.9 kg</item>
+        <item>109.35 kg</item>
+        <item>109.8 kg</item>
+        <item>110.25 kg</item>
+        <item>110.7 kg</item>
+        <item>111.15 kg</item>
+        <item>111.6 kg</item>
+        <item>112.05 kg</item>
+        <item>112.5 kg</item>
+        <item>112.95 kg</item>
+        <item>113.4 kg</item>
+        <item>113.85 kg</item>
+        <item>114.3 kg</item>
+        <item>114.75 kg</item>
+        <item>115.2 kg</item>
+        <item>115.65 kg</item>
+        <item>116.1 kg</item>
+        <item>116.55 kg</item>
+        <item>117.0 kg</item>
+        <item>117.45 kg</item>
+        <item>117.9 kg</item>
+        <item>118.35 kg</item>
+        <item>118.8 kg</item>
+        <item>119.25 kg</item>
+        <item>119.7 kg</item>
+        <item>120.15 kg</item>
+        <item>120.6 kg</item>
+        <item>121.05 kg</item>
+        <item>121.5 kg</item>
+        <item>121.95 kg</item>
+        <item>122.4 kg</item>
+        <item>122.85 kg</item>
+        <item>123.3 kg</item>
+        <item>123.75 kg</item>
+        <item>124.2 kg</item>
+        <item>124.65 kg</item>
+        <item>125.1 kg</item>
+        <item>125.55 kg</item>
+        <item>126.0 kg</item>
+        <item>126.45 kg</item>
+        <item>126.9 kg</item>
+        <item>127.35 kg</item>
+        <item>127.8 kg</item>
+        <item>128.25 kg</item>
+        <item>128.7 kg</item>
+        <item>129.15 kg</item>
+        <item>129.6 kg</item>
+        <item>130.05 kg</item>
+        <item>130.5 kg</item>
+        <item>130.95 kg</item>
+        <item>131.4 kg</item>
+        <item>131.85 kg</item>
+        <item>132.3 kg</item>
+        <item>132.75 kg</item>
+        <item>133.2 kg</item>
+        <item>133.65 kg</item>
+        <item>134.1 kg</item>
+        <item>134.55 kg</item>
+        <item>135.0 kg</item>
+        <item>135.45 kg</item>
+        <item>135.9 kg</item>
+        <item>136.35 kg</item>
+        <item>136.8 kg</item>
+        <item>137.25 kg</item>
+        <item>137.7 kg</item>
+        <item>138.15 kg</item>
+        <item>138.6 kg</item>
+        <item>139.05 kg</item>
+        <item>139.5 kg</item>
+        <item>139.95 kg</item>
+        <item>140.4 kg</item>
+        <item>140.85 kg</item>
+        <item>141.3 kg</item>
+        <item>141.75 kg</item>
+        <item>142.2 kg</item>
+        <item>142.65 kg</item>
+        <item>143.1 kg</item>
+        <item>143.55 kg</item>
+        <item>144.0 kg</item>
+        <item>144.45 kg</item>
+        <item>144.9 kg</item>
+        <item>145.35 kg</item>
+        <item>145.8 kg</item>
+        <item>146.25 kg</item>
+        <item>146.7 kg</item>
+        <item>147.15 kg</item>
+        <item>147.6 kg</item>
+        <item>148.05 kg</item>
+        <item>148.5 kg</item>
+        <item>148.95 kg</item>
+        <item>149.4 kg</item>
+        <item>149.85 kg</item>
+        <item>150.3 kg</item>
+        <item>150.75 kg</item>
+        <item>151.2 kg</item>
+        <item>151.65 kg</item>
+        <item>152.1 kg</item>
+        <item>152.55 kg</item>
+        <item>153.0 kg</item>
+        <item>153.45 kg</item>
+        <item>153.9 kg</item>
+        <item>154.35 kg</item>
+        <item>154.8 kg</item>
+        <item>155.25 kg</item>
+        <item>155.7 kg</item>
+        <item>156.15 kg</item>
+        <item>156.6 kg</item>
+        <item>157.05 kg</item>
+        <item>157.5 kg</item>
+        <item>157.95 kg</item>
+        <item>158.4 kg</item>
+        <item>158.85 kg</item>
+        <item>159.3 kg</item>
+        <item>159.75 kg</item>
+        <item>160.2 kg</item>
+        <item>160.65 kg</item>
+        <item>161.1 kg</item>
+        <item>161.55 kg</item>
+        <item>162.0 kg</item>
+        <item>162.45 kg</item>
+        <item>162.9 kg</item>
+        <item>163.35 kg</item>
+        <item>163.8 kg</item>
+        <item>164.25 kg</item>
+        <item>164.7 kg</item>
+        <item>165.15 kg</item>
+        <item>165.6 kg</item>
+        <item>166.05 kg</item>
+        <item>166.5 kg</item>
+        <item>166.95 kg</item>
+        <item>167.4 kg</item>
+        <item>167.85 kg</item>
+        <item>168.3 kg</item>
+        <item>168.75 kg</item>
+        <item>169.2 kg</item>
+        <item>169.65 kg</item>
+        <item>170.1 kg</item>
+        <item>170.55 kg</item>
+        <item>171.0 kg</item>
+        <item>171.45 kg</item>
+        <item>171.9 kg</item>
+        <item>172.35 kg</item>
+        <item>172.8 kg</item>
+        <item>173.25 kg</item>
+        <item>173.7 kg</item>
+        <item>174.15 kg</item>
+        <item>174.6 kg</item>
+        <item>175.05 kg</item>
+        <item>175.5 kg</item>
+        <item>175.95 kg</item>
+        <item>176.4 kg</item>
+        <item>176.85 kg</item>
+        <item>177.3 kg</item>
+        <item>177.75 kg</item>
+        <item>178.2 kg</item>
+        <item>178.65 kg</item>
+        <item>179.1 kg</item>
+        <item>179.55 kg</item>
+        <item>180.0 kg</item>
+</string-array>
+    <string-array name="poundArrayValue">
+        <item>50.0</item>
+        <item>51.0</item>
+        <item>52.0</item>
+        <item>53.0</item>
+        <item>54.0</item>
+        <item>55.0</item>
+        <item>56.0</item>
+        <item>57.0</item>
+        <item>58.0</item>
+        <item>59.0</item>
+        <item>60.0</item>
+        <item>61.0</item>
+        <item>62.0</item>
+        <item>63.0</item>
+        <item>64.0</item>
+        <item>65.0</item>
+        <item>66.0</item>
+        <item>67.0</item>
+        <item>68.0</item>
+        <item>69.0</item>
+        <item>70.0</item>
+        <item>71.0</item>
+        <item>72.0</item>
+        <item>73.0</item>
+        <item>74.0</item>
+        <item>75.0</item>
+        <item>76.0</item>
+        <item>77.0</item>
+        <item>78.0</item>
+        <item>79.0</item>
+        <item>80.0</item>
+        <item>81.0</item>
+        <item>82.0</item>
+        <item>83.0</item>
+        <item>84.0</item>
+        <item>85.0</item>
+        <item>86.0</item>
+        <item>87.0</item>
+        <item>88.0</item>
+        <item>89.0</item>
+        <item>90.0</item>
+        <item>91.0</item>
+        <item>92.0</item>
+        <item>93.0</item>
+        <item>94.0</item>
+        <item>95.0</item>
+        <item>96.0</item>
+        <item>97.0</item>
+        <item>98.0</item>
+        <item>99.0</item>
+        <item>100.0</item>
+        <item>101.0</item>
+        <item>102.0</item>
+        <item>103.0</item>
+        <item>104.0</item>
+        <item>105.0</item>
+        <item>106.0</item>
+        <item>107.0</item>
+        <item>108.0</item>
+        <item>109.0</item>
+        <item>110.0</item>
+        <item>111.0</item>
+        <item>112.0</item>
+        <item>113.0</item>
+        <item>114.0</item>
+        <item>115.0</item>
+        <item>116.0</item>
+        <item>117.0</item>
+        <item>118.0</item>
+        <item>119.0</item>
+        <item>120.0</item>
+        <item>121.0</item>
+        <item>122.0</item>
+        <item>123.0</item>
+        <item>124.0</item>
+        <item>125.0</item>
+        <item>126.0</item>
+        <item>127.0</item>
+        <item>128.0</item>
+        <item>129.0</item>
+        <item>130.0</item>
+        <item>131.0</item>
+        <item>132.0</item>
+        <item>133.0</item>
+        <item>134.0</item>
+        <item>135.0</item>
+        <item>136.0</item>
+        <item>137.0</item>
+        <item>138.0</item>
+        <item>139.0</item>
+        <item>140.0</item>
+        <item>141.0</item>
+        <item>142.0</item>
+        <item>143.0</item>
+        <item>144.0</item>
+        <item>145.0</item>
+        <item>146.0</item>
+        <item>147.0</item>
+        <item>148.0</item>
+        <item>149.0</item>
+        <item>150.0</item>
+        <item>151.0</item>
+        <item>152.0</item>
+        <item>153.0</item>
+        <item>154.0</item>
+        <item>155.0</item>
+        <item>156.0</item>
+        <item>157.0</item>
+        <item>158.0</item>
+        <item>159.0</item>
+        <item>160.0</item>
+        <item>161.0</item>
+        <item>162.0</item>
+        <item>163.0</item>
+        <item>164.0</item>
+        <item>165.0</item>
+        <item>166.0</item>
+        <item>167.0</item>
+        <item>168.0</item>
+        <item>169.0</item>
+        <item>170.0</item>
+        <item>171.0</item>
+        <item>172.0</item>
+        <item>173.0</item>
+        <item>174.0</item>
+        <item>175.0</item>
+        <item>176.0</item>
+        <item>177.0</item>
+        <item>178.0</item>
+        <item>179.0</item>
+        <item>180.0</item>
+        <item>181.0</item>
+        <item>182.0</item>
+        <item>183.0</item>
+        <item>184.0</item>
+        <item>185.0</item>
+        <item>186.0</item>
+        <item>187.0</item>
+        <item>188.0</item>
+        <item>189.0</item>
+        <item>190.0</item>
+        <item>191.0</item>
+        <item>192.0</item>
+        <item>193.0</item>
+        <item>194.0</item>
+        <item>195.0</item>
+        <item>196.0</item>
+        <item>197.0</item>
+        <item>198.0</item>
+        <item>199.0</item>
+        <item>200.0</item>
+        <item>201.0</item>
+        <item>202.0</item>
+        <item>203.0</item>
+        <item>204.0</item>
+        <item>205.0</item>
+        <item>206.0</item>
+        <item>207.0</item>
+        <item>208.0</item>
+        <item>209.0</item>
+        <item>210.0</item>
+        <item>211.0</item>
+        <item>212.0</item>
+        <item>213.0</item>
+        <item>214.0</item>
+        <item>215.0</item>
+        <item>216.0</item>
+        <item>217.0</item>
+        <item>218.0</item>
+        <item>219.0</item>
+        <item>220.0</item>
+        <item>221.0</item>
+        <item>222.0</item>
+        <item>223.0</item>
+        <item>224.0</item>
+        <item>225.0</item>
+        <item>226.0</item>
+        <item>227.0</item>
+        <item>228.0</item>
+        <item>229.0</item>
+        <item>230.0</item>
+        <item>231.0</item>
+        <item>232.0</item>
+        <item>233.0</item>
+        <item>234.0</item>
+        <item>235.0</item>
+        <item>236.0</item>
+        <item>237.0</item>
+        <item>238.0</item>
+        <item>239.0</item>
+        <item>240.0</item>
+        <item>241.0</item>
+        <item>242.0</item>
+        <item>243.0</item>
+        <item>244.0</item>
+        <item>245.0</item>
+        <item>246.0</item>
+        <item>247.0</item>
+        <item>248.0</item>
+        <item>249.0</item>
+        <item>250.0</item>
+        <item>251.0</item>
+        <item>252.0</item>
+        <item>253.0</item>
+        <item>254.0</item>
+        <item>255.0</item>
+        <item>256.0</item>
+        <item>257.0</item>
+        <item>258.0</item>
+        <item>259.0</item>
+        <item>260.0</item>
+        <item>261.0</item>
+        <item>262.0</item>
+        <item>263.0</item>
+        <item>264.0</item>
+        <item>265.0</item>
+        <item>266.0</item>
+        <item>267.0</item>
+        <item>268.0</item>
+        <item>269.0</item>
+        <item>270.0</item>
+        <item>271.0</item>
+        <item>272.0</item>
+        <item>273.0</item>
+        <item>274.0</item>
+        <item>275.0</item>
+        <item>276.0</item>
+        <item>277.0</item>
+        <item>278.0</item>
+        <item>279.0</item>
+        <item>280.0</item>
+        <item>281.0</item>
+        <item>282.0</item>
+        <item>283.0</item>
+        <item>284.0</item>
+        <item>285.0</item>
+        <item>286.0</item>
+        <item>287.0</item>
+        <item>288.0</item>
+        <item>289.0</item>
+        <item>290.0</item>
+        <item>291.0</item>
+        <item>292.0</item>
+        <item>293.0</item>
+        <item>294.0</item>
+        <item>295.0</item>
+        <item>296.0</item>
+        <item>297.0</item>
+        <item>298.0</item>
+        <item>299.0</item>
+        <item>300.0</item>
+        <item>301.0</item>
+        <item>302.0</item>
+        <item>303.0</item>
+        <item>304.0</item>
+        <item>305.0</item>
+        <item>306.0</item>
+        <item>307.0</item>
+        <item>308.0</item>
+        <item>309.0</item>
+        <item>310.0</item>
+        <item>311.0</item>
+        <item>312.0</item>
+        <item>313.0</item>
+        <item>314.0</item>
+        <item>315.0</item>
+        <item>316.0</item>
+        <item>317.0</item>
+        <item>318.0</item>
+        <item>319.0</item>
+        <item>320.0</item>
+        <item>321.0</item>
+        <item>322.0</item>
+        <item>323.0</item>
+        <item>324.0</item>
+        <item>325.0</item>
+        <item>326.0</item>
+        <item>327.0</item>
+        <item>328.0</item>
+        <item>329.0</item>
+        <item>330.0</item>
+        <item>331.0</item>
+        <item>332.0</item>
+        <item>333.0</item>
+        <item>334.0</item>
+        <item>335.0</item>
+        <item>336.0</item>
+        <item>337.0</item>
+        <item>338.0</item>
+        <item>339.0</item>
+        <item>340.0</item>
+        <item>341.0</item>
+        <item>342.0</item>
+        <item>343.0</item>
+        <item>344.0</item>
+        <item>345.0</item>
+        <item>346.0</item>
+        <item>347.0</item>
+        <item>348.0</item>
+        <item>349.0</item>
+        <item>350.0</item>
+        <item>351.0</item>
+        <item>352.0</item>
+        <item>353.0</item>
+        <item>354.0</item>
+        <item>355.0</item>
+        <item>356.0</item>
+        <item>357.0</item>
+        <item>358.0</item>
+        <item>359.0</item>
+        <item>360.0</item>
+        <item>361.0</item>
+        <item>362.0</item>
+        <item>363.0</item>
+        <item>364.0</item>
+        <item>365.0</item>
+        <item>366.0</item>
+        <item>367.0</item>
+        <item>368.0</item>
+        <item>369.0</item>
+        <item>370.0</item>
+        <item>371.0</item>
+        <item>372.0</item>
+        <item>373.0</item>
+        <item>374.0</item>
+        <item>375.0</item>
+        <item>376.0</item>
+        <item>377.0</item>
+        <item>378.0</item>
+        <item>379.0</item>
+        <item>380.0</item>
+        <item>381.0</item>
+        <item>382.0</item>
+        <item>383.0</item>
+        <item>384.0</item>
+        <item>385.0</item>
+        <item>386.0</item>
+        <item>387.0</item>
+        <item>388.0</item>
+        <item>389.0</item>
+        <item>390.0</item>
+        <item>391.0</item>
+        <item>392.0</item>
+        <item>393.0</item>
+        <item>394.0</item>
+        <item>395.0</item>
+        <item>396.0</item>
+        <item>397.0</item>
+        <item>398.0</item>
+        <item>399.0</item>
+        <item>400.0</item>
+    </string-array>
+
+</resources>
