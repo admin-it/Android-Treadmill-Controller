@@ -1,5 +1,5 @@
-package treadmill.dr;
 
+package treadmill.dr;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
