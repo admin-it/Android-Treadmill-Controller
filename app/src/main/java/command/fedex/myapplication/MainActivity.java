@@ -12,6 +12,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -53,23 +54,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setLogo(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
         String weight = null, incline = null, speed = null, type = null;
-        sharedpreferences = getSharedPreferences(SaveData, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        weight = sharedpreferences.getString(WData, null);
-        speed = sharedpreferences.getString(MSP, null);
-        incline = sharedpreferences.getString(MINC, null);
-        type = sharedpreferences.getString(KPHMPH, null);
-        if(weight == null | incline == null | speed == null | type == null)
-        {
-            editor.putString(WData, "200");
-            editor.putString(MSP, "15.0");
-            editor.putString(MINC, "1.0");
-            editor.putString(KPHMPH, "Mile");
-            editor.commit();
-        }
-
-
-
+        PreferenceManager.setDefaultValues(this, R.xml.preference, false);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         act = this;
         adapter = BluetoothAdapter.getDefaultAdapter();

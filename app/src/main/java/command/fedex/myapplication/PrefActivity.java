@@ -4,12 +4,19 @@ package command.fedex.myapplication;
         import android.preference.PreferenceActivity;
         import android.preference.PreferenceFragment;
         import android.support.v7.app.ActionBar;
-public class PrefActivity extends PreferenceActivity {
+        import android.support.v7.app.ActionBarActivity;
+        import android.support.v7.app.AppCompatActivity;
+        import android.support.v7.widget.Toolbar;
+        import android.view.LayoutInflater;
+        import android.widget.LinearLayout;
+
+public class PrefActivity extends AppCompatPreferenceActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
+        setupActionBar();
     }
 
     public static class MyPreferenceFragment extends PreferenceFragment
@@ -22,12 +29,11 @@ public class PrefActivity extends PreferenceActivity {
         }
     }
 
-
     private void setupActionBar() {
-       // ActionBar actionBar = getSupportActionBar();
-        //if (actionBar != null) {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
             // Show the Up button in the action bar.
-           // actionBar.setDisplayHomeAsUpEnabled(true);
-     //   }
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 }

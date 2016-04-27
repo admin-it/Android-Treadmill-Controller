@@ -23,9 +23,11 @@
         android:entryValues="@array/incmArray"
         />
 
-    <EditTextPreference     android:title="Weight"
+    <ListPreference     android:title="Weight"
         android:summary="Enter your weight for calorie analysis."
         android:key="WGHT"
         android:defaultValue="150"
+        android:entries="@array/poundArray"
+        android:entryValues="@array/poundArray"
         />
 </PreferenceScreen>
