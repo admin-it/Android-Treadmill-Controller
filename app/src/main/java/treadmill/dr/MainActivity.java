@@ -64,9 +64,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setLogo(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
         String weight = null, incline = null, speed = null, type = null;
-<<<<<<< HEAD:app/src/main/java/command/fedex/myapplication/MainActivity.java
         PreferenceManager.setDefaultValues(this, R.xml.preference, false);
-=======
         sharedpreferences = getSharedPreferences(SaveData, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         weight = sharedpreferences.getString(WData, null);
@@ -99,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         Button startButton = (Button) findViewById(R.id.buttonStart);
->>>>>>> 1d18a5e3b3004e82e173b05e03fa9db80cda38ab:app/src/main/java/treadmill/dr/MainActivity.java
         fab = (FloatingActionButton) findViewById(R.id.fab);
         act = this;
         adapter = BluetoothAdapter.getDefaultAdapter();

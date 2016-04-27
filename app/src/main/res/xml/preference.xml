@@ -12,13 +12,8 @@
         android:summary="Select the max speed of your treadmill."
         android:key="SPRSPD"
         android:defaultValue="15.0"
-<<<<<<< HEAD
         android:entries="@array/mileshowArray"
         android:entryValues="@array/mileArray"
-=======
-        android:entries="@array/mileArray"
-        android:entryValues="@array/mileArrayValue"
->>>>>>> 1d18a5e3b3004e82e173b05e03fa9db80cda38ab
         />
     <ListPreference     android:title="Max Incline"
         android:summary="Select the max incline of your treadmill."
@@ -32,12 +27,7 @@
         android:summary="Enter your weight for calorie analysis."
         android:key="WGHT"
         android:defaultValue="150"
-<<<<<<< HEAD
         android:entries="@array/poundshowArray"
         android:entryValues="@array/poundArray"
-=======
-        android:entries="@array/poundArray"
-        android:entryValues="@array/poundArrayValue"
->>>>>>> 1d18a5e3b3004e82e173b05e03fa9db80cda38ab
         />
 </PreferenceScreen>
