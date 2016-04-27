@@ -1,3 +1,4 @@
+<<<<<<< HEAD:app/src/main/java/command/fedex/myapplication/AppCompatPreferenceActivity.java
 package command.fedex.myapplication;
         import android.content.res.Configuration;
         import android.os.Bundle;
@@ -10,6 +11,22 @@ package command.fedex.myapplication;
         import android.view.MenuInflater;
         import android.view.View;
         import android.view.ViewGroup;
+=======
+package treadmill.dr;
+
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+>>>>>>> 1d18a5e3b3004e82e173b05e03fa9db80cda38ab:app/src/main/java/treadmill/dr/AppCompatPreferenceActivity.java
 /**
  * A {@link android.preference.PreferenceActivity} which implements and proxies the necessary calls
  * to be used with AppCompat.

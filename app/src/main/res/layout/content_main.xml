@@ -4,23 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="command.fedex.myapplication.MainActivity"
+    tools:context="command.fedex.treadmill.MainActivity"
     android:background="#d5d5d5"
     tools:showIn="@layout/activity_main">
-
-    <TextClock
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textClock"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="20dp" />
-
 
 
     <ImageButton
@@ -29,10 +20,11 @@
         android:id="@+id/btnInclineUp"
         android:src="@drawable/ic_expand_less_white_48dp"
         android:background="#d5d5d5"
-        android:layout_toStartOf="@+id/textClock"
-        android:layout_alignTop="@+id/btnSpeedUp"
+
+        android:clickable="true"
         android:layout_above="@+id/imageView"
-        android:clickable="true" />
+
+        android:layout_marginStart="68dp" />
 
     <ImageButton
         android:layout_width="70dp"
@@ -41,9 +33,9 @@
         android:src="@drawable/ic_add_white_48dp"
         android:background="#d5d5d5"
         android:clickable="true"
-        android:layout_toEndOf="@+id/textClock"
-        android:layout_above="@+id/imageView2"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_below="@+id/etIncline"
+        android:layout_alignEnd="@+id/etIncline" />
 
     <ImageView
         android:layout_width="70dp"
@@ -58,8 +50,8 @@
         android:layout_height="80dp"
         android:id="@+id/imageView2"
         android:src="@drawable/speed_icon"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/btnSpeedUp" />
+        android:layout_above="@+id/btnInclineDown"
+        android:layout_alignStart="@+id/btnSpeedUp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,8 +60,8 @@
         android:text="Incline"
         android:id="@+id/textView"
         android:textSize="25dp"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_alignEnd="@+id/imageView" />
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/btnInclineUp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -77,9 +69,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Speed"
         android:id="@+id/textView2"
-        android:layout_above="@+id/etSpeed"
-        android:layout_alignStart="@+id/etSpeed"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:layout_marginEnd="70dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -89,12 +82,12 @@
         android:id="@+id/etSpeed"
         android:text="0"
         android:gravity="center_horizontal"
-        android:layout_above="@+id/btnSpeedUp"
-        android:layout_alignEnd="@+id/btnSpeedUp"
-        android:layout_toEndOf="@+id/textClock"
         android:focusable="false"
         android:clickable="false"
-        android:enabled="false" />
+        android:enabled="false"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignEnd="@+id/btnInclineUp" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -117,57 +110,157 @@
         android:id="@+id/etIncline"
         android:text="0"
         android:gravity="center_horizontal"
-        android:layout_above="@+id/btnInclineUp"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_alignStart="@+id/btnInclineUp"
         android:focusable="false"
         android:clickable="false"
-        android:enabled="false" />
+        android:enabled="false"
+        android:layout_alignTop="@+id/etSpeed"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnInclineDown"
         android:src="@drawable/ic_expand_more_white_48dp"
-        android:layout_below="@+id/imageView"
-        android:layout_alignStart="@+id/imageView"
-
         android:background="#d5d5d5"
-        android:clickable="true" />
+        android:clickable="true"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true"
         android:weightSum="2"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout">
 
         <Button
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="START"
             android:id="@+id/buttonStart"
-            android:layout_gravity="bottom|left"
             android:background="#00ff00"
             android:textColor="#ffffff"
-            android:height="55dp"
             android:textSize="17dp"
-            android:layout_margin="10dp"
             android:clickable="true"
             android:layout_weight="1"/>
 
         <Button
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="STOP"
             android:id="@+id/buttonStop"
             android:background="#ff0000"
             android:textColor="#ffffff"
             android:textSize="17dp"
             android:clickable="true"
-            android:layout_margin="10dp"
+
             android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:weightSum="3"
+        android:layout_marginBottom="64dp"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Time Elapsed"
+            android:id="@+id/timeElap"
+            android:textSize="18dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Distance"
+            android:id="@+id/distance"
+            android:textSize="18dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Calories burned"
+            android:id="@+id/calories"
+            android:textSize="18dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:weightSum="3"
+        android:layout_marginBottom="9dp"
+        android:layout_alignParentEnd="true">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:ems="10"
+            android:text="0"
+            android:id="@+id/etTime"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:clickable="false"
+            android:enabled="false"
+            android:gravity="center_horizontal" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:ems="10"
+            android:text="0"
+            android:id="@+id/etDistance"
+            android:textSize="18dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:clickable="false"
+            android:enabled="false"
+            android:gravity="center_horizontal" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:ems="10"
+            android:text="0"
+            android:id="@+id/etCalories"
+            android:textSize="18dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:clickable="false"
+            android:enabled="false"
+            android:gravity="center_horizontal" />
+
     </LinearLayout>
 
 </RelativeLayout>
