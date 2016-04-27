@@ -18,8 +18,8 @@
     <ListPreference     android:title="Max Incline"
         android:summary="Select the max incline of your treadmill."
         android:key="MTEV"
-        android:defaultValue="1.0"
-        android:entries="@array/incmArray"
+        android:defaultValue="10.0"
+        android:entries="@array/incmshowArray"
         android:entryValues="@array/incmArray"
         />
 
@@ -27,7 +27,7 @@
         android:summary="Enter your weight for calorie analysis."
         android:key="WGHT"
         android:defaultValue="150"
-        android:entries="@array/poundArray"
+        android:entries="@array/poundshowArray"
         android:entryValues="@array/poundArray"
         />
 </PreferenceScreen>
