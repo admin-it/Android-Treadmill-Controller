@@ -12,7 +12,7 @@
         android:summary="Select the max speed of your treadmill."
         android:key="SPRSPD"
         android:defaultValue="15.0"
-        android:entries="@array/mileArray"
+        android:entries="@array/mileshowArray"
         android:entryValues="@array/mileArray"
         />
     <ListPreference     android:title="Max Incline"
