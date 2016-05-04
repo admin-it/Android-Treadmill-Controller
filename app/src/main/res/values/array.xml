@@ -68,22 +68,22 @@
     </string-array>
 
     <string-array name="mileArray">
-        <item>10.00 mph</item>
-        <item>11.00 mph</item>
-        <item>12.00 mph</item>
-        <item>13.00 mph</item>
-        <item>14.00 mph</item>
-        <item>15.00 mph</item>
-        <item>16.00 mph</item>
-        <item>17.00 mph</item>
-        <item>18.00 mph</item>
-        <item>19.00 mph</item>
-        <item>20.00 mph</item>
-        <item>21.00 mph</item>
-        <item>22.00 mph</item>
-        <item>23.00 mph</item>
-        <item>24.00 mph</item>
-        <item>25.00 mph</item>
+        <item>10.0</item>
+        <item>11.0</item>
+        <item>12.0</item>
+        <item>13.0</item>
+        <item>14.0</item>
+        <item>15.0</item>
+        <item>16.0</item>
+        <item>17.0</item>
+        <item>18.0</item>
+        <item>19.0</item>
+        <item>20.0</item>
+        <item>21.0</item>
+        <item>22.0</item>
+        <item>23.0</item>
+        <item>24.0</item>
+        <item>25.0</item>
     </string-array>
 
 
