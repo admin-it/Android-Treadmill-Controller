@@ -7,22 +7,22 @@
 
 
     <string-array name="kiloArray">
-        <item>16.0</item>
-        <item>17.6</item>
-        <item>19.2</item>
-        <item>20.8</item>
-        <item>22.4</item>
-        <item>24.0</item>
-        <item>25.6</item>
-        <item>27.2</item>
-        <item>28.8</item>
-        <item>30.4</item>
-        <item>32.0</item>
-        <item>33.6</item>
-        <item>35.2</item>
-        <item>36.8</item>
-        <item>38.4</item>
-        <item>40.0</item>
+        <item>16.0 kph</item>
+        <item>17.6 kph</item>
+        <item>19.2 kph</item>
+        <item>20.8 kph</item>
+        <item>22.4 kph</item>
+        <item>24.0 kph</item>
+        <item>25.6 kph</item>
+        <item>27.2 kph</item>
+        <item>28.8 kph</item>
+        <item>30.4 kph</item>
+        <item>32.0 kph</item>
+        <item>33.6 kph</item>
+        <item>35.2 kph</item>
+        <item>36.8 kph</item>
+        <item>38.4 kph</item>
+        <item>40.0 kph</item>
     </string-array>
 
     <string-array name="mileshowArray">
@@ -68,22 +68,22 @@
     </string-array>
 
     <string-array name="mileArray">
-        <item>10.0</item>
-        <item>11.0</item>
-        <item>12.0</item>
-        <item>13.0</item>
-        <item>14.0</item>
-        <item>15.0</item>
-        <item>16.0</item>
-        <item>17.0</item>
-        <item>18.0</item>
-        <item>19.0</item>
-        <item>20.0</item>
-        <item>21.0</item>
-        <item>22.0</item>
-        <item>23.0</item>
-        <item>24.0</item>
-        <item>25.0</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
     </string-array>
 
 

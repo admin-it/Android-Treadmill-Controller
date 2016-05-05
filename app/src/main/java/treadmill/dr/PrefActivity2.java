@@ -1,20 +1,13 @@
 package treadmill.dr;
 
-        import android.content.Intent;
-        import android.graphics.drawable.ColorDrawable;
-        import android.os.Bundle;
-        import android.preference.PreferenceActivity;
-        import android.preference.PreferenceFragment;
-        import android.support.v7.app.ActionBar;
-        import android.support.v7.app.ActionBarActivity;
-        import android.support.v7.app.AppCompatActivity;
-        import android.support.v7.widget.Toolbar;
-        import android.view.LayoutInflater;
-        import android.widget.LinearLayout;
-        import android.view.MenuItem;
+import android.content.Intent;
+import android.os.Bundle;
+import android.preference.PreferenceFragment;
+import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
 
 
-public class PrefActivity extends AppCompatPreferenceActivity {
+public class PrefActivity2 extends AppCompatPreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +23,7 @@ public class PrefActivity extends AppCompatPreferenceActivity {
         public void onCreate(final Bundle savedInstanceState)
         {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.preference);
+            addPreferencesFromResource(R.xml.preferencekilo);
         }
     }
 

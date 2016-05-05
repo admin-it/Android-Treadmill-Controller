@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     int MAX_INCLINE = 20;
     int MIN_INCLINE = 0;
     int CHANGE_DELAY = 200;
+    int weight = 150;
+    String metric = "";
     SharedPreferences sharedpreferences;
     public static final String SaveData = "TRSMCT" ;
     public static final String WData = "WGHT" ;
@@ -63,25 +65,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setLogo(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
-        String weight = null, incline = null, speed = null, type = null;
         PreferenceManager.setDefaultValues(this, R.xml.preference, false);
-        sharedpreferences = getSharedPreferences(SaveData, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        weight = sharedpreferences.getString(WData, null);
-        speed = sharedpreferences.getString(MSP, null);
-        incline = sharedpreferences.getString(MINC, null);
-        type = sharedpreferences.getString(KPHMPH, null);
-        if(weight == null | incline == null | speed == null | type == null)
-        {
-            editor.putString(WData, "200");
-            editor.putString(MSP, "15.0");
-            editor.putString(MINC, "1.0");
-            editor.putString(KPHMPH, "Mile");
-            editor.commit();
-        }
-
-
-
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String wght = SP.getString(WData, "150"), spd = SP.getString("SPRSPD", "14");
+        weight = Integer.parseInt(wght);
+        metric = SP.getString("EORA", "Miles");
+        MAX_SPEED = Integer.parseInt(spd);
         Button stopButton = (Button) findViewById(R.id.buttonStop);
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -542,11 +531,15 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings && metric.equalsIgnoreCase("Miles")) {
             Intent intent = new Intent(this, PrefActivity.class);
             startActivity(intent);
             return true;
-        } else if (id == R.id.action_bluetooth) {
+        } else if (id == R.id.action_settings && metric.equalsIgnoreCase("Kilometers")) {
+            Intent intent = new Intent(this, PrefActivity2.class);
+            startActivity(intent);
+            return true;
+        }else if (id == R.id.action_bluetooth) {
             //code for bluetooth connection goes here
             attempBluetooth("Starting bluetooth communication");
         }
