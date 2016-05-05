@@ -30,8 +30,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -76,6 +74,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    socket.getOutputStream().write("4".toString().getBytes());
+                    Toast.makeText(act, "Stopping Treadmill", Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    attempBluetooth("Please pair a device");
+                }
+            }
+        });
+        stopButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                try {
                     if(socket.isConnected())
                         socket.close();
                     Toast.makeText(act, "Bluetooth connection closed",Toast.LENGTH_LONG).show();
@@ -83,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(act, "Connection is closed.",Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
+                return false;
             }
         });
         Button startButton = (Button) findViewById(R.id.buttonStart);
@@ -391,7 +402,7 @@ public class MainActivity extends AppCompatActivity {
                 deviceList = new ArrayList<BluetoothDevice>();
                 arrayAdapter = new ArrayAdapter<String>(
                         act,
-                        android.R.layout.select_dialog_singlechoice);;
+                        android.R.layout.select_dialog_singlechoice);
                 //discovery starts, we can show progress dialog or perform other tasks
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
                 Log.d("BLUETOOTH", "DONE DISCOVERY");
@@ -488,7 +499,7 @@ public class MainActivity extends AppCompatActivity {
                         arrayAdapter.add(device.getName());
                     else
                         arrayAdapter.add("Generic Name");
-                } catch (Exception e){
+                } catch (Exception e) {
 
                 }
                 //Toast.makeText(act, device.getAddress(),Toast.LENGTH_LONG).show();
