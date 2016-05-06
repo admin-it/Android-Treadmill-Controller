@@ -38,7 +38,12 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
-    long startTime;                                             // used to cal timeElapsed
+    long startTime, endTime;                                             // used to cal timeElapsed
+    int calo = 0;
+    double distance = 0;
+    boolean begin = true;
+    boolean stopTimmer = false;
+    double weight = 150;                                                // ******* AARON fill this in mate :) *******
     int MAX_SPEED = 14;
     int MIN_SPEED = 0;
     int MAX_INCLINE = 20;
@@ -52,9 +57,25 @@ public class MainActivity extends AppCompatActivity {
     public static final String KPHMPH = "EORA" ;
     EditText Speed;
     EditText Incline;
+    EditText timeElap;
+    EditText distan;
+    EditText calories;
     BluetoothAdapter adapter;
     FloatingActionButton fab;
     Activity act;
+    Handler handler = new Handler();
+    Runnable runnable = new Runnable() {
+        public void run() {
+            timmer();
+        }
+    };
+    Handler dhandler = new Handler();
+    Runnable drunnable = new Runnable(){
+        public void run() {
+            distance();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,11 +100,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
         Button stopButton = (Button) findViewById(R.id.buttonStop);
-        stopButton.setOnClickListener(new View.OnClickListener() {
+        stopButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onLongClick(View v) {
                 try {
                     if(socket.isConnected())
                         socket.close();
@@ -92,8 +112,24 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(act, "Connection is closed.",Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
+                stopTimmer = true;
+                return false;
             }
         });
+
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    socket.getOutputStream().write("4".toString().getBytes());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    attempBluetooth("Treadmill not connected");
+                }
+                stopTimmer = true;
+            }
+        });
+
         Button startButton = (Button) findViewById(R.id.buttonStart);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         act = this;
@@ -229,7 +265,65 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        startTime = System.currentTimeMillis();
+        runnable.run();
+        drunnable.run();
+
     }
+
+    public void timmer()
+    {
+        timeElap = (EditText) findViewById(R.id.etTime);
+        String[] numbers  = timeElap.getText().toString().split("\\:");
+        int hour = Integer.valueOf(numbers[0]);
+        int min = Integer.valueOf(numbers[1]);
+        if (!stopTimmer) {
+            if (min >= 59) {
+                hour++;
+                min = 0;
+            } else if (begin == true) {
+                begin = false;
+            } else {
+                min++;
+            }
+            if (min < 10)
+                timeElap.setText(hour + ":0" + min);
+            else
+                timeElap.setText(hour + ":" + min);
+            handler.postDelayed(runnable, 1000);
+        }
+    }
+
+    public void distance()
+    {
+        String[] numbers = Speed.getText().toString().split("\\.");
+        double MaxSpeed;
+        int currentSpeed;
+        int decimal;
+        try {
+            decimal = Integer.valueOf(numbers[1]);
+        } catch (Exception e) {
+            decimal = -1;
+        }
+        distan = (EditText) findViewById(R.id.etDistance);
+        calories = (EditText) findViewById(R.id.etCalories);
+        endTime = System.currentTimeMillis();
+        if (decimal == -1)
+            MaxSpeed = (double) MAX_SPEED * 1.60934;
+        else
+            MaxSpeed = (double) MAX_SPEED;
+        double speed = Double.parseDouble(Speed.getText().toString());
+        distance += (MaxSpeed * speed) * (endTime - startTime) / 60 ;
+        distance = Math.round (distance * 10.0 / 10.0);
+        distan.setText("" + distance);
+        calo += (int) (0.75 * weight * distance);
+        calories.setText("" + calo);
+        startTime = endTime;
+        dhandler.postDelayed(drunnable, 1000);
+    }
+
+
     //Speed up and down buttons
     private Handler speedChange = new Handler();
     private boolean speedIncrement = false;
@@ -330,7 +424,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         try {
-            socket.getOutputStream().write("2".toString().getBytes());
+            socket.getOutputStream().write("3".toString().getBytes());
             Incline.setText(Integer.toString(currentIncline));
         } catch (Exception e) {
             e.printStackTrace();
@@ -346,7 +440,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         try {
-            socket.getOutputStream().write("3".toString().getBytes());
+            socket.getOutputStream().write("2".toString().getBytes());
             Incline.setText(Integer.toString(currentIncline));
         } catch (Exception e) {
             e.printStackTrace();
