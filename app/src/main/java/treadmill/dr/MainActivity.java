@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     double distance = 0;
     boolean begin = true;
     boolean stopTimmer = false;
-    double weight = 150;                                                // ******* AARON fill this in mate :) *******
+    double weightt = 150;                                                // ******* AARON fill this in mate :) *******
     int MAX_SPEED = 14;
     int MIN_SPEED = 0;
     int MAX_INCLINE = 20;
@@ -91,18 +91,18 @@ public class MainActivity extends AppCompatActivity {
         metric = SP.getString("EORA", "Miles");
         MAX_SPEED = Integer.parseInt(spd);
         Button stopButton = (Button) findViewById(R.id.buttonStop);
-        stopButton.setOnLongClickListener(new View.OnLongClickListener() {
+        stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 try {
                     socket.getOutputStream().write("4".toString().getBytes());
                     Toast.makeText(act, "Stopping Treadmill", Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
+                    } catch (Exception e) {
                     e.printStackTrace();
                     attempBluetooth("Please pair a device");
+                    }
                 }
-            }
-        });
+            });
         stopButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -319,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
         distance += (MaxSpeed * speed) * (endTime - startTime) / 60 ;
         distance = Math.round (distance * 10.0 / 10.0);
         distan.setText("" + distance);
-        calo += (int) (0.75 * weight * distance);
+        calo += (int) (0.75 * weightt * distance);
         calories.setText("" + calo);
         startTime = endTime;
         dhandler.postDelayed(drunnable, 1000);
