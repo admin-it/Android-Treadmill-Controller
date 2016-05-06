@@ -13,6 +13,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -29,8 +30,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -49,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     int MAX_INCLINE = 20;
     int MIN_INCLINE = 0;
     int CHANGE_DELAY = 200;
+    int weight = 150;
+    String metric = "";
     SharedPreferences sharedpreferences;
     public static final String SaveData = "TRSMCT" ;
     public static final String WData = "WGHT" ;
@@ -83,24 +84,25 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setLogo(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
-        String weight = null, incline = null, speed = null, type = null;
-        sharedpreferences = getSharedPreferences(SaveData, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        weight = sharedpreferences.getString(WData, null);
-        speed = sharedpreferences.getString(MSP, null);
-        incline = sharedpreferences.getString(MINC, null);
-        type = sharedpreferences.getString(KPHMPH, null);
-        if(weight == null | incline == null | speed == null | type == null)
-        {
-            editor.putString(WData, "200");
-            editor.putString(MSP, "15.0");
-            editor.putString(MINC, "1.0");
-            editor.putString(KPHMPH, "Mile");
-            editor.commit();
-        }
-
-
+        PreferenceManager.setDefaultValues(this, R.xml.preference, false);
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String wght = SP.getString(WData, "150"), spd = SP.getString("SPRSPD", "14");
+        weight = Integer.parseInt(wght);
+        metric = SP.getString("EORA", "Miles");
+        MAX_SPEED = Integer.parseInt(spd);
         Button stopButton = (Button) findViewById(R.id.buttonStop);
+        stopButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                try {
+                    socket.getOutputStream().write("4".toString().getBytes());
+                    Toast.makeText(act, "Stopping Treadmill", Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    attempBluetooth("Please pair a device");
+                }
+            }
+        });
         stopButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -494,7 +496,7 @@ public class MainActivity extends AppCompatActivity {
                 deviceList = new ArrayList<BluetoothDevice>();
                 arrayAdapter = new ArrayAdapter<String>(
                         act,
-                        android.R.layout.select_dialog_singlechoice);;
+                        android.R.layout.select_dialog_singlechoice);
                 //discovery starts, we can show progress dialog or perform other tasks
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
                 Log.d("BLUETOOTH", "DONE DISCOVERY");
@@ -591,7 +593,7 @@ public class MainActivity extends AppCompatActivity {
                         arrayAdapter.add(device.getName());
                     else
                         arrayAdapter.add("Generic Name");
-                } catch (Exception e){
+                } catch (Exception e) {
 
                 }
                 //Toast.makeText(act, device.getAddress(),Toast.LENGTH_LONG).show();
@@ -634,11 +636,15 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings && metric.equalsIgnoreCase("Miles")) {
             Intent intent = new Intent(this, PrefActivity.class);
             startActivity(intent);
             return true;
-        } else if (id == R.id.action_bluetooth) {
+        } else if (id == R.id.action_settings && metric.equalsIgnoreCase("Kilometers")) {
+            Intent intent = new Intent(this, PrefActivity2.class);
+            startActivity(intent);
+            return true;
+        }else if (id == R.id.action_bluetooth) {
             //code for bluetooth connection goes here
             attempBluetooth("Starting bluetooth communication");
         }
